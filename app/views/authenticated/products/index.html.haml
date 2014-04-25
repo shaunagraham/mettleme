@@ -1,0 +1,37 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        = render 'authenticated/tabs/store', :locals => {:@products => @products}
+        - if @products.none?
+          .list-wrap
+            #my-store.hide
+            #my-items
+              .empty_store
+                %h3
+                  %b Your store is empty.
+                  %br/
+                  %span= link_to 'Add New Item', new_user_product_path, class: 'btn_additem'
+        - else
+          - @products.each do |product|
+            .item_listing
+              %ul
+                %li
+                  %span.action_btns
+                    / <a class="btn_draft_item" href="#"> </a>
+                    = link_to ' '.html_safe, "#", class: 'btn_draft_item'
+                    = link_to ' '.html_safe, product_path(product), class: 'btn_view_item'
+                    = link_to ' '.html_safe, edit_user_product_path(product), class: 'btn_edit_item'
+                    = link_to ' '.html_safe, user_product_path(product), method: :delete, class: 'btn_delete_item'
+                  = link_to edit_user_product_path(product) do
+                    = image_tag product.image
+                    %br/
+                    = product.name
+                    %br/
+                    %span= product.store.name
+                    %br/
+                    %em Dress
+                    %br/
+                    %span.price
+                      \&dollar;#{product.price}

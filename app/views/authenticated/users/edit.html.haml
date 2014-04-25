@@ -1,0 +1,54 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      .contact
+        %h2 My Profile
+        = form_for @user, :url => user_path do |f|
+          %aside
+            %ul
+              %li
+                %label First Name
+                = f.text_field :first_name
+              %li
+                %label Last Name
+                = f.text_field :last_name
+          %aside
+            %ul
+              %li
+                %label Email
+                = f.text_field :email
+          %aside
+            %ul
+              %li
+                %label Country
+                = f.country_select :country, priority: %w(US CA), prompt: 'Please select a country'
+              %li
+                %label State
+                = render partial: 'subregion_select', locals: {parent_region: f.object.country}
+              %li
+                %label City
+                = f.text_field :city
+              %li
+                %label ZIP Code
+                = f.text_field :zip_code
+          - if !@user.encrypted_password.nil?
+            %aside
+              %ul
+                %li
+                  %span
+                    = link_to 'Change password ?', change_password_user_path
+          .contact-send
+            %input.red-btn{name: "", onclick: "$('#user_form').submit();", type: "button", value: "Save Changes"}/
+            = link_to 'Cancel', root_path, class: 'grey-btn'
+:javascript
+  $(function() {
+  								  	return $('select#user_country').change(function(event) {
+  								    var country, select_wrapper, url;
+  								    select_wrapper = $('#user_state_wrapper');
+  								    $('select', select_wrapper).attr('disabled', true);
+  								    country = $(this).val();
+  								    url = "/user/subregion_options?parent_region=" + country;
+  								    return select_wrapper.load(url);
+  								  });
+  								});

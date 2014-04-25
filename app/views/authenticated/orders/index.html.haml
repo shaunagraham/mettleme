@@ -1,0 +1,73 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        = render 'authenticated/tabs/orders'
+        .list-wrap
+          #my-orders
+            .my-orders
+              %h2 Recent Orders
+              %ul.recent-orders-head
+                %li
+                  .order-no
+                    %span Order No.
+                  .order-date
+                    %span Order Date
+                  .order-details
+                    %span Details
+              - @orders.each do |order|
+                %ul.recent-orders
+                  %li{id: "order_#{order.id}"}
+                    .order-no
+                      %span= order.id
+                    .order-date
+                      %span= order.created_at.strftime('%B %d, %Y')
+                    .order-details
+                      = link_to 'View Order', '#', id: "view_order_#{order.id}", class: 'view-order'
+                      = link_to 'Hide Order', '#', id: "hide_order_#{order.id}", class: 'view-order', style: 'display: none;'
+                      %script{charset: "utf-8", type: "text/javascript"}
+                        :cdata
+                          $('#view_order_#{order.id}').live('click', function() {
+                          $('#order_#{order.id}').addClass('open');
+                          $('#order_#{order.id} .order-block').show();
+                          $('#hide_order_#{order.id}').show();
+                          $(this).hide();
+                          });
+
+                          $('#hide_order_#{order.id}').live('click', function() {
+                          $('#order_#{order.id}').removeClass('open');
+                          $('#order_#{order.id} .order-block').hide();
+                          $('#view_order_#{order.id}').show();
+                          $(this).hide();
+                          });
+                    .order-block{style: "display: none;"}
+                      .order-pd-img
+                        = image_tag order.cart.items.first.product.image, width: 68
+                      .order-det
+                        W-Dis Fur Jacket
+                        %br/
+                        %span.name-store Name of Store
+                        %br/
+                        %em Blouse
+                        %br/
+                        Size: M
+                        %br/
+                        Price: 35 USD
+                        %br/
+                        Quantity: 2
+                        %br/
+                        Total Price:
+                        %span.order-pd-price 70 USD
+                        %br/
+                        Date Shipped: July 7, 2013
+                      .order-tabs
+                        .order-tabs-buttons
+                          %a{href: "#"} Shipping
+                          %a.active{href: "#"} Contact Seller
+                        .order-tabs-det
+                          .order-shipping{style: "display:none;"}
+                          .contact-seller
+                            %textarea{cols: "", name: "", rows: ""} Write your message
+                            %input.red-btn{name: "", type: "button", value: "Send Message"}/
+          #become-seller.hide

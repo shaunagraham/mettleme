@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'AvenirLT45BookRegular';
+    src: url(/assets/avenir-book.eot);
+    src: url(/assets/avenir-book.eot) format('embedded-opentype'),
+         url(/assets/avenir-book.woff) format('woff'),
+         url(/assets/avenir-book.ttf) format('truetype'),
+         url(/assets/avenir-book.svg#AvenirLT45BookRegular) format('svg');
+}

@@ -1,0 +1,41 @@
+.row
+  .content_wrapper
+    = render 'pages/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        %ul.nav
+          %li= link_to 'Shoppers Guide', page_path('support/shoppers')
+          %li= link_to 'Sellers Guide', page_path('support/sellers')
+          %li= link_to 'Who Can Become A Seller?', page_path("support/become_seller")
+          %li= link_to 'Contact Us', page_path("support/contact_us"), class: 'current'
+        .list-wrap
+          .contact
+            %h2 Contact Us
+            %aside
+              %ul
+                %li
+                  %label
+                    Your Name
+                    %span *
+                  %input{name: "", type: "text"}/
+                %li
+                  %label
+                    Email Address
+                    %span *
+                  %input{name: "", type: "text"}/
+                %li
+                  %label
+                    Why Contact Us?
+                    %span *
+                  %select{name: ""}
+                    %option Account Information
+                %li
+                  %label Username
+                  %input{name: "", type: "text"}/
+                %li
+                  %label
+                    Your  Message
+                    %span *
+                  %textarea{cols: "", name: "", rows: ""}
+            .contact-send
+              %input.send-btn{name: "", type: "button", value: "Send"}/

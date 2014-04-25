@@ -1,0 +1,59 @@
+.left_navigation
+  = form_tag stores_path , :id => "search_form", :method => :get do
+    %h3 Top Designers
+    = hidden_field_tag :search, params[:search]
+    .designer_sort.scroll-pane
+      %ul
+        - Designer.top_designers.all.each do |designer|
+          %li
+            = check_box_tag "designer_ids[]", designer.id, (params[:designer_ids].present? and params[:designer_ids].include?(designer.id.to_s)) , :id => dom_id(designer), :class => 'filter'
+            = label_tag dom_id(designer), "#{designer.name} #{designer.last_name}"
+    %h3 Designers a–z
+    .designer_sort.az_sort
+      %ul
+        %li
+          = check_box_tag "letters[]", "@", (params[:letters].present? and params[:letters].include?("@")) , :id => "@", :class => 'filter'
+          \#
+        - ('A' .. 'Z').each do |letter|
+          %li
+            = check_box_tag "letters[]", letter, (params[:letters].present? and params[:letters].include?(letter)) , :id => letter, :class => 'filter'
+            = label_tag letter, letter
+    %h3 Location
+    .location_sort
+      %ul
+        %li
+          = check_box_tag "country_continents[]", "United States", (params[:country_continents].present? and params[:country_continents].include?("United States")) , :id => "United States", :class => 'filter'
+          = label_tag "United States", "United States"
+        %li
+          = check_box_tag "country_continents[]", "Canada", (params[:country_continents].present? and params[:country_continents].include?("Canada")) , :id => "Canada", :class => 'filter'
+          = label_tag "Canada", "Canada"
+        %li
+          = check_box_tag "country_continents[]", "Europe", (params[:country_continents].present? and params[:country_continents].include?("Europe")) , :id => "Europe", :class => 'filter'
+          = label_tag "Europe", "Europe"
+        %li
+          = check_box_tag "country_continents[]", "Africa", (params[:country_continents].present? and params[:country_continents].include?("Africa")) , :id => "Africa", :class => 'filter'
+          = label_tag "Africa", "Africa"
+        %li
+          = check_box_tag "country_continents[]", "Asia", (params[:country_continents].present? and params[:country_continents].include?("Asia")) , :id => "Asia", :class => 'filter'
+          = label_tag "Asia", "Asia"
+        %li
+          = check_box_tag "country_continents[]", "South America", (params[:country_continents].present? and params[:country_continents].include?("South America")) , :id => "South America", :class => 'filter'
+          = label_tag "South America", "South America"
+        %li
+          = check_box_tag "country_continents[]", "Australia", (params[:country_continents].present? and params[:country_continents].include?("Australia")) , :id => "Australia", :class => 'filter'
+          = label_tag "Australia", "Australia"
+    %h3 Style
+    .location_sort.style
+      %ul
+        - Style.all.each do |style|
+          %li
+            = check_box_tag "style_ids[]", style.id, (params[:style_ids].present? and params[:style_ids].include?(style.id.to_s)) , :id => dom_id(style), :class => 'filter'
+            = label_tag dom_id(style), style.name
+    %h3 Trends
+    .location_sort.style
+      %ul
+        - Trend.all.each do |trend|
+          %li
+            = check_box_tag "trends[]", trend.name, (params[:trends].present? and params[:trends].include?(trend.name)) , :id => trend.name, :class => 'filter'
+            = label_tag trend.name, trend.name
+  = link_to '', stores_path, :class => 'btn_clearfilters'

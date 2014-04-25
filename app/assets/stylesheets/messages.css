@@ -1,0 +1,94 @@
+.messages_right{ position:relative; float:right; width:738px; margin-top:20px; margin-bottom:50px;font-family: 'avenir_lt_55_romanbold';}
+.messages_right .messages_inner{ position:relative; border:1px solid #dddddd;}
+.messages_right *{ margin:0px; padding:0px; outline:0px; border:none;}
+.messages_right a{ text-decoration:none;}
+.messages_right .chkbox input[type="checkbox"] {
+}
+.messages_right .chkbox input[type="checkbox"] + label span {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    vertical-align:middle;
+    background:url(/assets/formattributes/check_2.png) left top no-repeat !important;
+    cursor:pointer;
+}
+.messages_right .chkbox input[type="checkbox"]:checked + label span {
+    background-position:left bottom !important;
+}
+.messages_right .chkbox label{ position:relative; top:3px; display:block;}
+.messages_right .messages-head{ position:relative; padding:10px 10px 10px 0px; height:60px; background:#f9f9fa;}
+.messages_right .messages-head .chkbox{ position:relative; float:left; width:52px; text-align:center; height:20px; padding:5px 0px;}
+.messages_right .messages-head .new_msg{ position:relative; float:left; line-height:20px; text-align:center; height:30px; padding:5px 28px; background:#2c90d6; color:#fff; margin-right:10px;}
+.messages_right .messages-head .new_msg:hover{ background:#2986c8;}
+.messages_right .messages-head .delete{ position:relative; float:left; line-height:22px; text-align:center; height:30px; padding:5px 14px 5px 32px; background:#e7e7e8 url(/assets/del_icon.png) 10px center no-repeat; color:#555555; margin-right:10px;}
+.messages_right .messages-head .delete:hover{ background-color:#dadadc;}
+.messages_right .messages-head .go_back{ position:relative; float:left; display:block; height:20px; padding:5px 0px; width:40px; background:#e7e7e8 url(/assets/back_arrow.png) center center no-repeat; color:#555555; margin-left:10px;}
+.messages_right .messages-head .go_back:hover{ background-color:#dadadc;}
+.messages_right .messages-head .cont_mettl{ position:relative; float:right; line-height:22px; text-align:center; height:30px; padding:5px 20px; background:#e7e7e8; color:#555555;}
+.messages_right .messages-head .cont_mettl:hover{ background:#dadadc;}
+.messages_right .inbox-body{ position:relative;}
+.messages_right .inbox-body tr{ position:relative; display:block;border-left:3px solid transparent; width:733px;}
+.messages_right .inbox-body tr:hover{ border-color:#2c90d6; background:#e8f8ff; cursor:pointer;}
+.messages_right .inbox-body tr.checked{ background:#fff8db;}
+.messages_right .inbox-body tr.sep{ position:relative; height:1px; padding:0px; background:#dddddd; }
+.messages_right .inbox-body tr td{ position:relative; line-height:20px; padding:14px 0px;}
+.messages_right .inbox-body tr td.chkbox{ width:48px; text-align:center;}
+.messages_right .inbox-body tr td.sender{ width:220px;}
+.messages_right .inbox-body tr td.sender h4{ position:relative; font-size:15px;font-family: 'avenir_book'; font-weight:700; color:#222222;}
+.messages_right .inbox-body tr td.sender p.time{ position:relative; font-size:12px; font-weight:normal; color:#999;}
+.messages_right .inbox-body tr td.content{ width:432px;}
+.messages_right .inbox-body tr td.content h4{ position:relative; font-size:15px;font-family: 'avenir_book'; font-weight:700; color:#222222;}
+.messages_right .inbox-body tr td.content p{ position:relative; font-size:15px; font-weight:normal;font-family: 'avenir_book'; color:#555555;}
+.messages_right .inbox-body tr td.attachment{ width:35px;}
+.messages_right .inbox-body tr td.has_attachment{ background:url(/assets/attach_icon_horizontal.png) left center no-repeat;}
+
+.messages_right .pagination { position:relative; float:right; font-size:13px; color:#222; padding:0px 28px; height:26px; margin:20px 0px;}
+.messages_right .pagination li{ position:relative; display:block; width:26px; height:26px; float:left; margin:0px 3px;}
+.messages_right .pagination li.prev{ position:absolute; left:0px; top:0px; margin:0px !important;}
+.messages_right .pagination li.prev a{ background:url(/assets/prev_icon.png) center no-repeat !important;}
+.messages_right .pagination li.next{ position:absolute; right:0px; top:0px; margin:0px !important;}
+.messages_right .pagination li.next a{ background:url(/assets/next_icon.png) center no-repeat !important;}
+.messages_right .pagination li a{ position:relative; display:block; width:24px; height:24px; color:#000; line-height:24px; text-align:center; border:1px solid #ddd;}
+.messages_right .pagination li.empty{ border-color:transparent; color:#222; text-align:center;}
+.messages_right .pagination li:hover a,.messages_right .pagination li.active a{ color:#fff; background:#000; border-color:#000;}
+.messages_right .pages { position:relative; float:right; font-size:15px; color:#222; padding:0px 20px; height:26px; line-height:26px; margin:20px 0px;}
+.messages_right .pages span{ color:#888;font-family: 'avenir_book';}
+
+.messages_right .new_msg_body{ position:relative; background:#f9f9fa; padding:0px 38px 38px; border-top:1px solid #ddd;}
+.messages_right .new_msg_body h3{ position:relative; font-size:22px; line-height:30px; padding:25px 0px 10px; color:#222;font-family: 'AvenirLT45BookRegular'; font-weight:normal;}
+.messages_right .new_msg_body input[type="text"]{ position:relative; display:block; border:1px solid #ddd; width:638px; line-height:20px; height:24px; padding:5px 10px;}
+.messages_right .new_msg_body label{ position:relative; padding:7px 0px; display:block; line-height:20px;font-family: 'avenir_book'; color:#555; font-size:13px; margin-bottom:12px;}
+.messages_right .new_msg_body textarea{ position:relative; display:block; border:1px solid #ddd; width:638px; line-height:16px; height:130px; padding:8px 10px; resize:none; margin-bottom:30px;}
+.messages_right .new_msg_body button[type="button"]{ position:relative; display:inline-block; line-height:20px;font-family: 'avenir_book'; color:#444; font-size:13px; margin-bottom:20px; padding-right:16px; background:url(/assets/attach_icon_vertical.png) right center no-repeat; opacity:0.8; cursor:pointer;}
+.messages_right .new_msg_body button[type="button"] span{ border-bottom:1px dotted #555;}
+.messages_right .new_msg_body button[type="button"]:hover{ opacity:1;}
+
+.messages_right .new_msg_body button[type="submit"]{ position:relative; display:block; float:left;font-family: 'AvenirLT45BookRegular'; line-height:20px; padding:7px 35px; color:#fff; background:#e2363b; cursor:pointer;}
+.messages_right .new_msg_body button[type="submit"]:hover{ background-color:#cd3136;}
+.messages_right .new_msg_body .cancel{ position:relative; display:block; float:left;font-family: 'AvenirLT45BookRegular'; line-height:20px; margin-left:12px; padding:8px 35px; color:#555555; background:#e7e7e8; cursor:pointer;}
+.messages_right .new_msg_body .cancel:hover{ background-color:#dadadc;}
+
+.messages_right .trail_msg_body{ position:relative; border-top:1px solid #ddd;}
+.messages_right .trail_msg_body .form_area{ position:relative; padding:30px; background:#fff8db;}
+.messages_right .trail_msg_body .form_area textarea{ position:relative; display:block; border:1px solid #ddd;font-family: 'avenir_book'; font-size:14px; width:654px; line-height:16px; height:126px; padding:8px 10px; resize:none; margin-bottom:30px;}
+
+.messages_right .trail_msg_body button[type="button"]{ position:relative; display:inline-block; line-height:20px;font-family: 'avenir_book'; color:#444; padding:8px 0px; font-size:13px; padding-right:16px; background:url(/assets/attach_icon_vertical.png) right center no-repeat; opacity:0.8; cursor:pointer;}
+.messages_right .trail_msg_body button[type="button"] span{ border-bottom:1px dotted #555;}
+.messages_right .trail_msg_body button[type="button"]:hover{ opacity:1;}
+.messages_right .trail_msg_body button[type="submit"]{ position:relative; display:block; float:left;font-family: 'AvenirLT45BookRegular'; margin-right:12px; line-height:20px; padding:7px 35px; color:#fff; background:#e2363b; cursor:pointer;}
+.messages_right .trail_msg_body button[type="submit"]:hover{ background-color:#cd3136;}
+.messages_right .trail_msg_body .view_more{ position:relative; line-height:20px; border-top:1px solid #ccc;}
+.messages_right .trail_msg_body .view_more a{ position:relative; display:block; padding:10px 0px 10px; background:#e7e7e8; color:#555555; text-align:center;}
+.messages_right .trail_msg_body .view_more a:hover{ background:#dbdbde;}
+
+.messages_right .big_title{ position:relative; font-size:28px; line-height:40px;font-family: 'AvenirLT45BookRegular'; padding-bottom:10px;}
+.messages_right .trail_msg_body .messages{ position:relative;}
+.messages_right .trail_msg_body .messages .message{ position:relative; padding:10px 30px 20px; border-top:1px solid #ddd;}
+.messages_right .trail_msg_body .messages .message .title{ position:relative; padding:10px 0px; line-height:20px;}
+.messages_right .trail_msg_body .messages .message:hover{ background:#f3f3f6;}
+.messages_right .trail_msg_body .messages .message .u_name{ position:relative; float:left; color:#222; font-size:13px; font-family: 'AvenirLT45BookRegular';}
+.messages_right .trail_msg_body .messages .message .date{ position:relative; float:right; font-size:12px; color:#aaa;font-family: 'avenir_book';}
+.messages_right .trail_msg_body .messages .message .text{ position:relative; line-height:18px; font-size:12px; color:#555;}
+.messages_right .trail_msg_body .messages .message .text p{ font-weight:bold; line-height:18px; font-size:12px; color:#555; margin-bottom:15px;}
+.messages_right .trail_msg_body .messages .message .text a.file{ position:relative; color:#2c90d6; line-height:24px; padding:3px 0px 3px 20px; background:url(/assets/file_icon.png) left center no-repeat;}
+.messages_right .trail_msg_body .messages .message .text a.file:hover{ text-decoration:underline;}

@@ -1,0 +1,140 @@
+.row
+  .content_wrapper
+    - if current_user
+      = render 'authenticated/sidebar'
+    - else
+      = render 'pages/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        %ul.nav
+          %li= link_to 'Shoppers Guide', page_path('support/shoppers'), class: 'current'
+          %li= link_to 'Sellers Guide', page_path('support/sellers')
+        .list-wrap
+          #shopper
+            .shopper
+              %section
+                %h3 About The Items
+                %p All items are brand new in stock or made to order by emerging fashion designers across the globe
+              %section
+                %h3 Stores
+                %p The stores are the collection of the emerging designers
+              %section
+                %h3 Made to Order and In Stock
+                %p
+                  All items are either made to order or in stock.
+                  %br
+                    Made to Order essentially means that item once purchased will be made after the purchase to fit your dimensions.
+                    %br
+                      In Stock means that it is ready made and ready to deliver right away.
+                      %br
+                    %section
+                      %h3 Pick Up Options
+                      %p There are no pick up options.  If you want to pick up the items in your area, you may contact the storeowner directly, however all sales must be made online.
+                    %section
+                      .guide-table
+                        %label For Women:
+                        %table{border: "0", cellpadding: "0", cellspacing: "0", width: "100"}
+                          %tr
+                            %td
+                            %td S
+                            %td M
+                            %td L
+                          %tr
+                            %td USA
+                            %td 6
+                            %td 8
+                            %td 10
+                          %tr
+                            %td UK
+                            %td 10
+                            %td 12
+                            %td 14
+                          %tr
+                            %td France
+                            %td 38
+                            %td 40
+                            %td 42
+                          %tr
+                            %td Germany
+                            %td 38
+                            %td 40
+                            %td 42
+                          %tr
+                            %td Italy
+                            %td 42
+                            %td 44
+                            %td 46
+                          %tr
+                            %td Spain
+                            %td 36
+                            %td 38
+                            %td 40
+                          %tr
+                            %td China
+                            %td 165/84a
+                            %td 170/92a
+                            %td 175/96a
+                      .guide-table
+                        %label For Men:
+                        %table{border: "0", cellpadding: "0", cellspacing: "0", width: "100"}
+                          %tr
+                            %td
+                            %td S
+                            %td M
+                            %td L
+                          %tr
+                            %td USA
+                            %td 36
+                            %td 38
+                            %td 40
+                          %tr
+                            %td UK
+                            %td 36
+                            %td 38
+                            %td 40
+                          %tr
+                            %td France
+                            %td 46
+                            %td 48
+                            %td 50
+                          %tr
+                            %td Italy
+                            %td 46
+                            %td 48
+                            %td 50
+                          %tr
+                            %td Japan
+                            %td 2
+                            %td 3
+                            %td 4
+                          %tr
+                            %td China
+                            %td 170/88a
+                            %td 175/92a
+                            %td 180/96a
+                    %section
+                      %h3 Payments
+                      %p You pay directly to the seller for any item you choose. As of now we use credit card processing with paypal.
+                    %section
+                      %h3 Store Policies
+                      %p Members have their own Store policy. It is your responsibility to confirm your purchase and policies. If there is are issues with a seller, please contact us.
+                    %section
+                      %h3 Returns
+                      %p
+                        Store members have their own return policy. If you want to return an item, please go to your account settings or receipt on your email and contact the storeowner about your return. You will receive payment immediately the item is returned to the storeowner. If there are any issues with returns, please contact us.
+
+                        If you have not received your payment after 72 hours – please contact
+                        %a{href: "#"} billing@mettleme.com
+                        or contact us.
+                    %section
+                      %h3 Delivery
+                      %p Each store member in the marketplace haves their own delivery policy. They decide fees and arrangements per item. If you have not received your item even after the status has been updated, please contact us.
+                    %section
+                      %h3 Disputes
+                      %p If you have believe you received a misrepresented item, please contact us.
+                    %section
+                      %h3 Cancellations
+                      %p Cancellations can be made within 24 hours of a purchase. After 24 hours, you can reach out to the seller directly to request a cancellation. If not, the seller can send you the item and you can return as long as it fits the sellers return policy.
+                    %section
+                      %h3 Protection  Security
+                      %p All shoppers are protected under paypal policies of disputes and arrangements under the USDA, etc. All credit card information is secure and will not be released to the public.

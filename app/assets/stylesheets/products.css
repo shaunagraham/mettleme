@@ -1,0 +1,618 @@
+
+
+/*/////////////////////////////////// css for item3.html start here////////////////////////////////////////*/
+.body_content{
+  margin-top:5px;
+  padding-bottom:44px;
+  float:left;
+  width:100%;
+  border-bottom:1px solid #e6e6e6;
+}
+.left_container{
+  float:left;
+  width:451px;
+}
+.small_img{
+  float:left;
+  width:65px;
+  margin-right:5px;
+}
+.big_img{
+  float:right;
+}
+.fb_twt{
+  margin-top:22px;
+  text-align:center;
+  width:427px;
+  clear:left;
+}
+.fb_twt p{
+  text-align:right;
+}
+.fb_twt a{
+  margin-right:15px;
+}
+.right_container{
+  float:right;
+  width:440px;
+  font-family: 'avenir_lt_55_romanbold';
+}
+.right_container h1{
+  text-align:left;
+  font-family: 'avenir_lt_55_romanbold';
+  font-size:32px;
+  text-transform:capitalize;
+  color:#222222;
+  margin-top:3px;
+}
+.store_n{
+  float:left;
+  width:100%;
+  margin:10px 0px 14px;
+}
+.store_n li{
+  float:left;
+  margin-right:12px;
+  font-size:12px;
+  text-transform:uppercase;
+  color:#5f5f5f;
+}
+.store_n a{
+  text-decoration:underline;
+  color:#5f5f5f;
+}
+.right_container h3{
+  float:none;
+  padding-bottom:10px;
+  width:100%;
+  font-family: 'avenir_lt_55_romanbold';
+  font-size:32px;
+  text-transform:capitalize;
+  color:#e2363b;
+  border-bottom:1px solid #e6e6e6;
+}
+.make_order {
+  float: left;
+  padding-top: 29px;
+}
+
+.make_order .item_options{ position:relative; height:105px;}
+.make_order .item_options *{ margin:0px; padding:0px; border:none; outline:none;}
+.make_order .item_options input[type=radio]{display:none;}
+.make_order .item_options label.rad_box { position:relative; display:block; float:left; width:20px; height:20px; text-align:center; border:1px solid #e6e6e6; background:#fff; margin-right:6px; cursor:pointer; line-height:24px;}
+.make_order .item_options input[type=radio]:checked + label.rad_box{ background:#000; color:#fff;border:1px solid #222;}
+.make_order .item_options .opt_buttons{ position:relative; padding-bottom:13px; height:24px;}
+.make_order .item_options .opt_buttons .opt_btn{ position:relative; float:left; margin-right:10px; font-size:12px; color:#bcbcbc; line-height:20px; padding:2px 8px; cursor:pointer;}
+.make_order .item_options .opt_buttons .opt_btn.active,.make_order .item_options .opt_buttons .opt_btn.dark{ background:#f0f0f0; color:#000;}
+.make_order .sel_size{ position:relative; margin-bottom:10px; display:none;}
+.make_order .sel_size h4{ text-transform:uppercase; color:#222;}
+.make_order .sel_size fieldset{ padding:10px 0px;}
+.make_order .mad_to_ord{ position:relative; margin-bottom:10px; display:none;}
+.make_order .mad_to_ord h4{ text-transform:uppercase; color:#e2363b;}
+.make_order .mad_to_ord fieldset{ padding:5px 0px; float:left; margin-right:10px; text-align:center;}
+.make_order .mad_to_ord fieldset .desc{ position:relative;  font-size:12px;}
+.make_order .mad_to_ord fieldset input{ width:34px; height:20px; line-height:14px; font-size:13px; padding:5px 7px; border:1px solid #e6e6e6;}
+.make_order .mad_to_ord fieldset label{ position:relative; display:block; line-height:24px; font-size:11px; padding-top:4px; text-transform:uppercase;}
+.make_order .tab{font-family: 'avenir_book';}
+#tabs-3.contact{ padding:30px 20px;font-family: 'avenir_book';}
+#tabs-3.contact *{ padding:0; margin:0; border:none; outline:none;}
+#tabs-3.contact .not_logged{ position:relative; text-align:center;}
+#tabs-3.contact .not_logged .create_acc{ position:relative; display:inline-block; padding:12px 30px 10px; margin-bottom:10px; text-decoration:none; color:#fff; background:#2daf3f; text-transform:uppercase; font-size:14px;}
+#tabs-3.contact .not_logged h3{ position:relative; font-size:18px;}
+
+#tabs-3.contact fieldset{ position:relative; margin-bottom:10px;}
+#tabs-3.contact label{ position:relative; display:block; float:left; width:98px; line-height:20px; font-size:15px; padding:7px 0px;}
+#tabs-3.contact input{ position:relative; display:block; float:right; font-family: 'avenir_lt_55_romanbold'; width:272px; padding:8px 10px; border:1px solid #e6e6e6; font-size:13px; height:16px; line-height:16px;}
+#tabs-3.contact textarea{ position:relative; display:block; float:right; width:272px; padding:8px 10px;font-family: 'avenir_lt_55_romanbold'; border:1px solid #e6e6e6; height:96px; resize:none; line-height:16px;}
+#tabs-3.contact button{ position:relative; float:left; font-size:12px; line-height:20px; font-family: 'avenir_lt_55_romanbold'; padding:6px 15px; cursor:pointer; margin-left:20px; color:#fff; background:#222;}
+
+#more_products *{ margin:0px; padding:0px; outline:0px; border:0px; font-family: 'avenir_lt_55_romanbold';}
+#more_products{ position:relative; padding:22px 0px; height:400px;}
+#more_products h2{ position:relative; line-height:30px; padding-bottom:20px; font-size:26px; color:#232323; font-family: 'avenir_lt_55_romanbold';}
+#more_products .slider{ position:relative;}
+#more_products .slider .product{ position:relative; float:left; width:148px; text-align:center; margin-right:10px; line-height:18px; font-size:13px;}
+#more_products .slider .product.last{ margin-right:0px;}
+#more_products .slider .product figure{ position:relative; margin-bottom:3px;}
+#more_products .slider .product .dark{ position:relative; color:#222222;}
+#more_products .slider .product .light{ position:relative; color:#999999;}
+#more_products .slider .product .price{ position:relative; color:#e43838;}
+#more_products .bx-controls-direction{ position:absolute; right:0px; top:30px;}
+#more_products .bx-controls-direction .bx-prev{ position:absolute; right:30px; top:0px; display:block; font-size:0; width:24px; height:24px; border:1px solid #e6e6e6; background:url(/assets/prev_icon.png) center center no-repeat;}
+#more_products .bx-controls-direction .bx-prev:hover{ border-color:#212121;}
+#more_products .bx-controls-direction .bx-next{ position:absolute; right:0px; top:0px; display:block; font-size:0; width:24px; height:24px; border:1px solid #e6e6e6; background:url(/assets/next_icon.png) center center no-repeat;}
+#more_products .bx-controls-direction .bx-next:hover{ border-color:#212121;}
+
+.in_stock {
+  float: left;
+  padding-left: 10px;
+}
+.in_stock h4 {
+  color: rgb(204, 204, 204);
+  float: left;
+  margin-bottom:15px;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.instock{
+  background: #fbfbfb;
+  color: #cccccc;
+  font-size: 12px;
+  font-weight: normal;
+
+  padding: 9px 9px 5px;
+  text-transform: uppercase;
+}
+
+
+.maketoorder{
+  background: #eaeaea;
+  color: rgb(34, 34, 34);
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 20px;
+  padding: 9px 9px 5px;
+  text-transform: uppercase;
+}
+
+.order_detail {
+  float: left;
+  margin-top:7px;
+}
+.order_detail table{
+  border:none;
+}
+.order_detail tr{
+  border:none;
+}
+.order_detail td{
+  border:none;
+}
+.inches {
+  float: left;
+  font-size: 12px;
+  margin-top: 9px;
+  text-transform: lowercase;
+  width: 68px !important;
+  color:#555555;
+}
+.height {
+  float: left;
+  font-size: 12px;
+  margin:0px 0px 0px 5px;
+  color:#222222;
+}
+.add_cart {
+  float: left;
+  margin-top: 16px;
+  width: 442px;
+}
+
+.cart {
+  float:left;
+  width:250px;
+  text-align:center;
+  height:45px;
+  font:16px 'AvenirLT45BookRegular';
+  color:#fff; background:#e2363b;
+  border:none; cursor:pointer;
+  text-transform:uppercase;
+  line-height:45px;}
+
+.addtofav {
+  background: url("/assets/sprite.png") no-repeat scroll 0 -149px rgba(0, 0, 0, 0) !important;
+  border: 1px solid rgb(230, 230, 230);
+  float: right;
+  padding:9px 10px 19px 15px;
+  margin: 12px 0;
+  width:148px !important;
+}
+.addtofav:hover{
+  background-position:0 -178px!important;
+}
+.name {
+  float:left;
+  color: rgb(34, 34, 34);
+  font-size: 12px;
+  width:65px;
+  padding:10px 0px 0px;
+}
+.form_fill {
+  border: 1px solid rgb(218, 218, 218);
+  margin-bottom:10px;
+  margin-left: 20px;
+  min-height:28px;
+  min-width: 294px;
+}
+.msg_txtarea {
+  border: 1px solid rgb(218, 218, 218);
+  margin-left: 20px;
+  min-height:104px;
+  min-width: 294px;
+}
+
+.slider{
+  float:left;
+  padding:25px 0px 77px 0px;
+}
+.slider h4 {
+  color: rgb(34, 34, 34);
+  float: left;
+  font-family: 'avenir_lt_55_romanbold';
+  font-size:26px;
+  font-weight: normal;
+}
+.rotate {
+  float: right;
+  margin-top:6px;
+}
+.prev {
+  border: 1px solid rgb(230, 230, 230);
+  color: rgb(34, 34, 34) !important;
+  margin-right: 2px;
+  padding: 5px 10px;
+}
+.next {
+  border: 1px solid rgb(230, 230, 230);
+  color: rgb(34, 34, 34) !important;
+  padding:5px 10px;
+}
+.more_product{
+  float:left;
+  margin-top:24px;
+  width:100%;
+}
+.more_product ul {
+  float: left;
+  width:100%;
+}
+.more_product ul li {
+  float: left;
+  width:148px;
+  margin-right:10px;
+  text-align: center;
+  line-height:20px;
+
+}
+.more_product ul li a{
+  text-align:center;
+  color:#222222;
+  font-family: 'avenir_lt_55_romanbold';
+  font-size:13px;
+  text-decoration:none;
+  text-transform:capitalize;
+}
+.more_product img {
+  margin-left:2px;
+
+
+}
+.action{
+  float:right!important;
+  padding:0px;
+  margin:0px!important;
+}
+.action img{
+  float:right;
+}
+.product_detail {
+
+
+}
+.raena_detai {
+
+  color: rgb(153, 153, 153);
+
+}
+.dresses {
+
+
+}
+.doller {
+  color: rgb(226, 54, 59);
+
+}
+.margin_none{
+  margin:0px;
+}
+/*/////////////////////////////////// css for item3.html end here////////////////////////////////////////*/
+
+
+
+
+/*////////// css for flip panel /////////////////////////////////*/
+#panel
+{
+  display:none;
+}
+#panel2
+{
+  display:none;
+}
+#tabs{ float:left; width:100%;}
+#tabs ul{ float:left;}
+#tabs li.contact_buyer{ float:left; width:170px;  font-size:12px;}
+#tabs li.contact_buyer a{color:#e2363b; padding:16px;}
+#tabs-5{ float:left; width:345px;border: 1px solid #dddddd; margin:0;}
+.notify_buyer{ border: 1px solid #dddddd;min-height: 32px;min-width: 294px;padding:10px;}
+.shipped_date{ border: 1px solid #dddddd;min-height: 28px;min-width: 130px;padding:10px;background:url(/assets/date.png) no-repeat center right;}
+.notify_form{ float:left;}
+.notify_form td{padding:14px 0 0 14px;}
+.notify{margin: 10px 0 24px;}
+.red_notify{
+  background:#cd3136;
+  color: rgb(255, 255, 255);
+  font-family: 'brandon_grotesqueblack';
+  font-size: 12px;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+#mcts1
+{
+  width:940px;
+
+  margin: 0 auto;
+  padding:5px 5px;
+  position:relative;
+  font-size:0px;
+}
+#mcts1>* {display:none;}
+
+/*-------- div.item is each thumbnail's wrapper created by the javascript ------*/
+#mcts1 div.item
+{
+
+}
+
+#mcts1 img
+{
+  border:none;
+  float:left;
+}
+
+
+/*---------built-in navigation buttons-------*/
+#mcts1 .navPrev, #mcts1 .navNext, #mcts1 .navPlay, #mcts1 .navPause
+{
+  width:16px; height:22px;
+  /* background:url(/assets/navbuttons.png); */
+  display:inline-block; z-index:5; cursor:pointer;
+}
+#mcts1 .navPrev {background-position:0 -22px;top:-42px;right:28px; border:1px solid #e6e6e6; background:url(/assets/prev.png) no-repeat center; position:fixed;}
+#mcts1 .navPrev:hover { border:1px solid #222222;}
+#mcts1 .navPrevDisabled, #mcts1 .navPrevDisabled:hover {background-position:0 0;cursor:default;}
+
+#mcts1 .navNext {background-position:-16px -22px; top: -42px;right:8px; border:1px solid #e6e6e6; background:url(/assets/next.png) no-repeat center; position:fixed;}
+#mcts1 .navNext:hover { border:1px solid #222222;}
+#mcts1 .navNextDisabled, #mcts1 .navNextDisabled:hover {background-position:-16px 0; cursor:default;}
+
+#mcts1 .navPause, #mcts1 .navPlay {left:360px;top:130px;}
+#mcts1 .navPause {background-position:0 -66px;}
+#mcts1 .navPause:hover {background-position:0 -88px;}
+#mcts1 .navPlay {background-position:-16px -66px;}
+#mcts1 .navPlay:hover {background-position:-16px -88px;}
+
+.navPrev, .navPlay, .navPause, .navNext
+{
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/*---------built-in navigation bullets--------*/
+/* Note: the navBullets won't be available when "scrollByEachThumb" was set to false in the Javascript.*/
+#mcts1 .navBullets
+{
+  display:none;
+}
+
+/*--------- class1 that is for the slide with HTML content------------*/
+.class1
+{
+  width:130px;
+  height: 80px;
+  background:#444;
+  text-align:center;
+  color:White;
+  font:normal 11px/14px Arial;
+  white-space:normal;
+}
+.class1 p
+{
+  margin-top:0;
+  margin-bottom:6px;
+  padding-top:6px;
+  font:bold 13px Verdana;
+  color:#F90;
+}
+
+
+/* --------- Others ------- */
+#mcts1
+{
+  transform: translate3d(0,0,0);
+  -ms-transform:translate3d(0,0,0);
+  -moz-transform:translate3d(0,0,0);
+  -o-transform:translate3d(0,0,0);
+}
+
+#prod_images{ position:relative; float:left; width:450px; height:584px;}
+#prod_images .thumbnails{ position:relative; float:left; width:65px; height:584px;}
+#prod_images .thumbnails .thumb{ position:relative; width:65px; height:92px; margin-bottom:5px; background:#e1e1e1; cursor:pointer;}
+#prod_images .thumbnails .thumb.active{ box-shadow:0px 0px 5px 0px #000;}
+#prod_images .images{ position:relative; float:right; width:380px; height:578px;}
+#prod_images .images .image{ position:relative; display:none; margin:0px;}
+#prod_images .images .image.current{ display:block;}
+
+.blue_banner{ position:relative; padding:18px 0px; background:#2c90d6; text-align:center; margin:0 auto; width:940px; margin-bottom:30px;}
+.blue_banner *{ margin:0; padding:0; outline:none; border:none;}
+.blue_banner .back_to_edit{ position:relative; text-decoration:none; display:inline-block; margin:0 auto; line-height:20px; padding:6px 36px 6px 52px; color:#fff;font-family: 'brandon_grotesquebold'; font-size:14px; text-transform:uppercase; border:1px solid #fff; background:url(/assets/lit_tri_icon.png) left top no-repeat;}
+.blue_banner .back_to_edit:hover{ background-position:left bottom; background-color:#fff; color:#2c90d6;}
+
+
+
+#payment{ position:relative; width:938px; border:1px solid #dddddd; background:#f0f0f0; color:#222; padding:42px 0px;font-family: 'avenir_book';}
+#payment *{ margin:0px; padding:0px; border:none; outline:none;}
+#payment h2{ position:relative; font-size:26px; line-height:30px;font-family: 'avenir_lt_55_romanbold';}
+#payment .sec{ position:relative; padding:0px 240px 0px 170px;}
+#payment .sec.one{ position:relative;}
+#payment .sec.two{ position:relative; padding-top:42px;}
+#payment .sec.three{ position:relative; padding-top:42px;}
+#payment .sep{ position:relative; border-bottom:1px solid #f9f9f9; border-top:1px solid #dadada; margin:18px 0px 30px;}
+#payment .sec .field_block{ position:relative; margin-bottom:10px;}
+#payment .sec .field_block.ext{ margin-bottom:34px;}
+#payment .sec .field_block .left{ position:relative; float:left; width:170px; line-height:34px;font-family: 'avenir_lt_55_romanbold'; font-weight:bold; font-size:15px;}
+#payment .sec .field_block .left .req{ position:relative; color:#e2363b;}
+#payment .sec .field_block .right{ position:relative; float:right; width:350px; line-height:34px;}
+#payment .sec .field_block .right p{ position:relative; font-size:13px; line-height:16px; padding:5px 0px;}
+#payment .sec .field_block .right p.billing_add{ position:relative; font-size:15px;  line-height:30px;}
+#payment .sec .field_block .right input[type="text"]{ position:relative; width:336px; height:33px;font-family: 'avenir_book'; line-height:20px; font-size:15px; padding:6px 10px; border:1px solid #bbbbbb; background-color:#fff;}
+#payment .sec .field_block .right input.selection{background:#fff url(/assets/select_bg.png) right center no-repeat; cursor:pointer;}
+#payment .sec .field_block .right input.small{ width:80px;}
+#payment .sec .field_block .right input.medium{ width:240px;}
+#payment .sec .field_block .right input.yellow{ width:240px; background:#fff7de;}
+#payment .sec .field_block .right input.tiny{ width:60px; background:#fff7de;}
+#payment .sec .field_block .right ul.sel_me{ position:absolute; right:0px; top:35px; width:356px; border:1px solid #bbb; border-top:none; background:#fff;font-family: 'avenir_book'; display:none; z-index:99;}
+#payment .sec .field_block .right ul.sel_me li{ position:relative; line-height:20px; font-size:13px; padding:3px 10px; border-bottom:1px solid #ddd; cursor:pointer;}
+#payment .sec .field_block .right ul.sel_me li:last-child{ border:none;}
+#payment .sec .field_block .right ul.sel_me li:hover{ color:#fff; background:#e2363b;}
+#payment .sec .field_block .right select{ position:relative; float:left; width:90px; border:1px solid #bbb; height:32px; line-height:32px; border-radius:5px; padding:4px; margin-right:10px; font-size:12px;}
+#payment .sec .field_block .right select option{ padding:3px 10px; line-height:15px;}
+#payment .sec .field_block .right .question{ position:relative; line-height:20px; padding:2px 6px 1px; margin:5px; font-size:14px; color:#fff;font-family: 'avenir_heavy'; background:#919191; border-radius:3px; text-decoration:none;}
+#payment .sec.two .left{}
+#payment .sec .field_block .right input[type=radio]{display:none;}
+#payment .sec .field_block .right label.rad_box { position:relative; display:block; font-family: 'brandon_grotesquebold'; font-size:14px; float:left; width:78px; height:28px; line-height:28px; text-align:center; border:1px solid #bbb; cursor:pointer; background-color:#f1f1f1; background-image:linear-gradient(top,#fff,#e4e3e3); background-image:-moz-linear-gradient(top,#fff,#e4e3e3); background-image:-webkit-linear-gradient(top,#fff,#e4e3e3); background-image:-o-linear-gradient(top,#fff,#e4e3e3); background-image:-ms-linear-gradient(top,#fff,#e4e3e3); }
+#payment .sec .field_block .right input[type=radio]:checked + label.rad_box{ color:#fff; border-color:#478632; background-color:#5ba841;background-image:linear-gradient(top,#60ad46,#367620); background-image:-moz-linear-gradient(top,#60ad46,#367620); background-image:-webkit-linear-gradient(top,#60ad46,#367620); background-image:-o-linear-gradient(top,#60ad46,#367620); background-image:-ms-linear-gradient(top,#60ad46,#367620);box-shadow:0px 0px 6px 0px #346524 inset; -moz-box-shadow:0px 0px 6px 0px #346524 inset; -ms-box-shadow:0px 0px 6px 0px #346524 inset; -webkit-box-shadow:0px 0px 6px 0px #346524 inset; -o-box-shadow:0px 0px 6px 0px #346524 inset;}
+#payment .sec button[type="submit"]{ position:relative; font-size:16px; text-transform:uppercase; line-height:20px; color:#fff; padding:8px 56px; background:#e2363b; cursor:pointer;font-family: 'brandon_grotesquebold';}
+#payment .sec button[type="submit"]:hover{ background:#cf2e34;}
+
+#money_tracker{ position:relative;}
+#money_tracker *{ margin:0; padding:0; outline:none; border:none; text-decoration:none;}
+#money_tracker .view_by{ position:relative; height:40px; width:100%;}
+#money_tracker .view_by li{ position:relative; float:left;font-family: 'brandon_grotesquebold'; text-transform:uppercase;}
+#money_tracker .view_by li a{ position:relative; display:block; padding:9px 42px; border:1px solid #ddd; line-height:20px; color:#333; font-size:12px; margin:0px;}
+#money_tracker .view_by li.active a,#money_tracker .view_by li:hover a{ border-color: #333; background:#333; color:#fff;}
+
+#money_tracker .tracker_inner{ position:relative; border:10px solid #f0f0f0; padding:20px; margin:20px 0px;}
+#money_tracker .tracker_inner .navigate{ position:relative; height:40px; margin-bottom:20px;}
+#money_tracker .tracker_inner .navigate .prev{ position:absolute; left:0px; top:0px; display:block; width:38px; height:38px; border:1px solid #ddd; background:url(/assets/prev_v2.png) center center no-repeat;}
+#money_tracker .tracker_inner .navigate .next{ position:absolute; right:0px; top:0px; display:block; width:38px; height:38px; border:1px solid #ddd; background:url(/assets/next_v2.png) center center no-repeat;}
+#money_tracker .tracker_inner .navigate .prev:hover,#money_tracker .tracker_inner .navigate .next:hover{ border-color:#333;}
+#money_tracker .tracker_inner .navigate .select{ position:relative; width:204px; height:40px; margin:0 auto;}
+#money_tracker .tracker_inner .navigate .select input.selection{ position:relative; width:182px; height:24px;font-family: 'avenir_book'; line-height:24px; font-size:20px; padding:7px 10px; border:1px solid #ddd; background:#f0f0f0 url(/assets/navigat_icon1.png) right center no-repeat; cursor:pointer;}
+#money_tracker .tracker_inner .navigate .select ul.sel_me{ position:absolute; right:0px; top:34px; width:202px; border:1px solid #ddd; border-top:none; background:#f0f0f0;font-family: 'avenir_book'; display:none; z-index:99;}
+#money_tracker .tracker_inner .navigate .select ul.sel_me li{ position:relative; line-height:22px; font-size:13px; padding:5px 10px; font-size:15px; border-bottom:1px solid #ddd; cursor:pointer;}
+#money_tracker .tracker_inner .navigate .select ul.sel_me li:last-child{ border:none;}
+#money_tracker .tracker_inner .navigate .select ul.sel_me li:hover{ color:#fff; background:#e2363b;}
+
+
+#money_tracker #main_table{ position:relative; border:1px solid #ddd;}
+#money_tracker #main_table tr{ position:relative; display:block; width:100%;}
+#money_tracker #main_table tr.head{ position:relative; background:#f0f0f0;font-family: 'avenir_heavy'; text-transform:uppercase; border-bottom:1px solid #ddd;}
+#money_tracker #main_table tr.head a{ color:#222;}
+#money_tracker #main_table tr.head td{ position:relative; line-height:20px; padding:15px 0px;}
+#money_tracker #main_table tr.head td img{ position:relative; vertical-align:middle;}
+#money_tracker #main_table tr.head .date{ position:relative; width:135px; padding-left:15px;}
+#money_tracker #main_table tr.head .empty{ position:relative; width:230px; padding-left:10px; border-left:1px solid transparent;}
+#money_tracker #main_table tr.head .down{ position:relative; padding:5px 5px; background:url(/assets/down_arrw.png) center center no-repeat;}
+#money_tracker #main_table tr.head .sales{ position:relative; width:80px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.head .discount{ position:relative; width:100px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.head .earnings{ position:relative; width:108px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.content_row{ position:relative; border-bottom:1px solid #ddd;}
+#money_tracker #main_table tr.content_row a{ color:#222;}
+#money_tracker #main_table tr.content_row td{ position:relative; line-height:20px; padding:15px 0px;font-family: 'avenir_book'; font-size:12px;}
+#money_tracker #main_table tr.content_row td img{ position:relative; vertical-align:middle;}
+#money_tracker #main_table tr.content_row .date{ position:relative; width:135px; padding-left:15px;}
+#money_tracker #main_table tr.content_row .empty{ position:relative; width:230px; padding-left:10px; border-left:1px solid transparent;}
+#money_tracker #main_table tr.content_row .toggle_icon{ position:relative; padding:3px 10px 3px; margin-right:5px; background:url(/assets/toogle_icon.png) center top no-repeat; cursor:pointer;}
+#money_tracker #main_table .parent_table.active tr.content_row .toggle_icon{ background-position:center bottom;}
+#money_tracker #main_table .parent_table.active tr.content_row td{ border-color:transparent;font-family: 'avenir_heavy';}
+#money_tracker #main_table .parent_table.active tr{ border-color:#b3e4d5;}
+#money_tracker #main_table .parent_table.active{ background:#e3f1ed; box-shadow:0px 0px 5px 0px #63c9ad;}
+#money_tracker #main_table tr.content_row .sales{ position:relative; width:80px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.content_row .discount{ position:relative; width:100px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.content_row .earnings{ position:relative; width:108px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table .child_table{ display:none;}
+#money_tracker #main_table .child_table tr{ position:relative; border-bottom:1px solid #ddd;}
+#money_tracker #main_table .child_table tr td{ position:relative; line-height:20px; padding:15px 0px;font-family: 'avenir_book'; font-size:12px;}
+#money_tracker #main_table .child_table tr td img{ position:relative; vertical-align:middle;}
+#money_tracker #main_table .child_table tr .date{ position:relative; width:105px; padding-left:45px;}
+#money_tracker #main_table .child_table tr .id{ position:relative; width:230px; padding-left:10px;}
+#money_tracker #main_table .child_table tr .sales{ position:relative; width:80px; border-left:1px solid transparent; text-align:center;}
+#money_tracker #main_table .child_table tr .discount{ position:relative; width:100px; border-left:1px solid transparent; text-align:center;}
+#money_tracker #main_table .child_table tr .earnings{ position:relative; width:108px; border-left:1px solid transparent; text-align:center;}
+#money_tracker #main_table tr.total{ position:relative;font-family: 'avenir_heavy'; font-size:12px; text-transform:uppercase; font-weight:normal;}
+#money_tracker #main_table tr.total td{ position:relative; line-height:20px; padding:15px 0px;}
+#money_tracker #main_table tr.total .tot{ position:relative; width:130px; padding-left:20px;}
+#money_tracker #main_table tr.total .empty{ position:relative; width:230px; padding-left:10px; border-left:1px solid transparent;}
+#money_tracker #main_table tr.total .sales{ position:relative; width:80px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.total .discount{ position:relative; width:100px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table tr.total .earnings{ position:relative; width:108px; border-left:1px solid #ddd; text-align:center;}
+#money_tracker #main_table.by_month tr.content_row td.empty{ border-color:#ddd;}
+#money_tracker #main_table.by_month tr.total td.empty{ border-color:#ddd;}
+#money_tracker #main_table.by_month .parent_table.active tr.content_row td{ border-color:transparent;font-family: 'avenir_heavy';}
+
+
+#customers{ position:relative; margin-bottom:20px;}
+#customers *{ margin:0; padding:0; outline:none; border:none; text-decoration:none;}
+
+#customers #main_table{ position:relative; border:1px solid #ddd;font-family: 'avenir_lt_55_romanbold';}
+#customers #main_table tr{ position:relative; display:block;}
+#customers #main_table tr.sep{ position:relative; display:block; height:1px; background:#ddd; border-left:none;}
+#customers #main_table tr.head{ position:relative; background:#f0f0f0;font-family: 'avenir_lt_55_romanbold'; border-left:none; font-size:11px; text-transform:uppercase; border-bottom:1px solid #ddd;}
+#customers #main_table tr.head a{ color:#222;}
+#customers #main_table tr.head td{ position:relative; line-height:20px; padding:15px 0px;}
+#customers #main_table tr.head td img{ position:relative; vertical-align:middle;}
+#customers #main_table tr.head .item_id{ position:relative; width:100px; padding-left:20px;}
+#customers #main_table tr.head .order_date{ position:relative; width:458px; padding-left:20px; border-left:1px solid #ddd;}
+#customers #main_table tr.head .down{ position:relative; padding:5px 5px; background:url(/assets/down_arrw.png) center center no-repeat;}
+#customers #main_table tr.head .details{ position:relative; width:120px; border-left:1px solid #ddd; padding-left:20px;}
+#customers #main_table tr.content_row{ position:relative; display:block; border-left:3px solid transparent; background:#f9f9fb;}
+#customers #main_table tr.content_row:hover{ border-color:#2d8fd6; background:#e7f8ff;}
+#customers #main_table tr.content_row a{ color:#222;}
+#customers #main_table tr.content_row td{ position:relative; line-height:20px; padding:15px 0px;font-family: 'avenir_book'; font-size:12px; color:#555557;}
+#customers #main_table tr.content_row.active{ background:#fff;}
+#customers #main_table tr.content_row.active td{ border-color:transparent;}
+#customers #main_table tr.content_row.active .details .toggle_icon{ background-position:center bottom;}
+#customers #main_table tr.content_row td img{ position:relative; vertical-align:middle;}
+#customers #main_table tr.content_row .item_id{ position:relative; width:97px; padding-left:20px;}
+#customers #main_table tr.content_row .order_date{ position:relative; width:458px; padding-left:20px; border-left:1px solid #ddd;}
+#customers #main_table tr.content_row .details{ position:relative; width:120px; border-left:1px solid #ddd; padding-left:20px; cursor:pointer;}
+#customers #main_table tr.content_row .details .toggle_icon{ position:relative; padding:3px 10px 3px; margin-right:5px; background:url(/assets/toogle_iconv2.png) center top no-repeat; cursor:pointer;}
+#customers #main_table .child_block{ position:relative; display:none;}
+#customers #main_table .row_content{ position:relative; height:200px; border-top:1px solid #ddd; padding:20px; display:block;}
+#customers #main_table .row_content .left{ position:relative; float:left; width:350px;}
+#customers #main_table .row_content .left .image{ position:relative; float:left; width:120px;}
+#customers #main_table .row_content .left .item_det{ position:relative; float:left; width:225px; color:#222; line-height:22px;}
+#customers #main_table .row_content .left .item_det .light{ color:#999999;}
+#customers #main_table .row_content .left .item_det .price{ color:#e4373b;}
+
+#customers .item_tabs{ position:relative; float:right; width:348px; margin-bottom:15px;}
+#customers .item_tabs .tab_buttons{ position:relative; height:40px; top:1px;}
+#customers .item_tabs .tab_buttons .button{ position:relative; float:left; text-align:center; text-transform:uppercase; font-family: 'avenir_heavy'; color:#000; padding:0px 35px; height:38px; z-index:1; line-height:38px; background:#f0f0f0; border:1px solid #f0f0f0; cursor:pointer;}
+#customers .item_tabs .tab_buttons .button.mid{ margin-left:8px;}
+#customers .item_tabs .tab_buttons .button.last{float:right;}
+#customers .item_tabs .tab_buttons .button.active{ background:#fff;border:1px solid #e6e6e6; border-bottom:1px solid transparent; color:#e33238;}
+#customers .item_tabs .tab_content{ position:relative; padding:15px; border:1px solid #e6e6e6;}
+#customers .item_tabs .tab_content .tab{ position:relative; display:none; min-height:170px;}
+#customers .item_tabs .tab_content .tab.current{ display:block;}
+#customers .item_tabs .tab_content fieldset{ position:relative; margin-bottom:12px;}
+#customers .item_tabs .tab_content .notify input{ position:relative;font-family: 'avenir_book'; width:110px; float:left; padding:6px 10px; border:1px solid #e6e6e6; font-size:14px; height:16px; line-height:16px;}
+#customers .item_tabs .tab_content .notify input.datepicker{ background:url(/assets/date.png) 106px center no-repeat;}
+#customers .item_tabs .tab_content .notify textarea{ position:relative;font-family: 'avenir_book'; font-size:14px; width:298px; padding:8px 10px; border:1px solid #e6e6e6; height:48px; resize:none; line-height:16px;}
+#customers .item_tabs .tab_content button{ position:relative; float:left; font-size:13px; line-height:20px; padding:6px 15px; cursor:pointer; color:#fff;font-family: 'brandon_grotesquebold'; background:#e3363c;}
+#customers .item_tabs .tab_content button:hover{ background:#d1272d;}
+#customers .item_tabs .tab_content .contact textarea{ position:relative;font-family: 'avenir_book'; font-size:14px; width:298px; padding:8px 10px; border:1px solid #e6e6e6; height:90px; resize:none; line-height:16px;}
+
+#customers .contact-seller{ position:relative; float:right; width:316px; margin-bottom:15px; padding:15px; border:1px solid #ddd;}
+#customers .contact-seller h3{ position:relative; line-height:20px; font-size:12px;font-family: 'avenir_lt_55_romanbold'; padding-bottom:5px;}
+#customers .contact-seller fieldset{ position:relative; margin-bottom:12px;}
+#customers .contact-seller textarea{ position:relative;font-family: 'avenir_book'; font-size:14px; width:298px; padding:8px 10px; border:1px solid #e6e6e6; height:42px; resize:none; line-height:16px;}
+#customers .contact-seller button{ position:relative; float:left; font-size:13px; line-height:20px; padding:6px 15px; cursor:pointer; color:#fff;font-family: 'brandon_grotesquebold'; background:#e3363c;}
+#customers .contact-seller button:hover{ background:#d1272d;}
+

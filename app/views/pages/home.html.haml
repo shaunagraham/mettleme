@@ -1,0 +1,37 @@
+.row
+  .row
+    = render partial: 'spotlights'
+  .row
+    .banner_container
+      .banner_wrapper.large-12.columns
+        .banner_detail
+          %h3
+            Shop
+            %span Summer
+          .clr
+          %p= link_to 'SHOP NOW', recent_products_path, class: 'btn_shopnow'
+  .row
+    .secondary_spots
+      .large-6.columns
+        .fleft
+          = link_to ' '.html_safe, recent_products_path, class: 'whats_new'
+      .large-6.columns
+        .fleft
+          = link_to image_tag('banner-2.png'), '#'
+  .row
+    .secondary_spots
+      .large-6.columns
+        .fleft= link_to image_tag('banner-3.png'), '#'
+      .large-6.columns
+        .fright.login_box
+          %h2 Sign In
+          .login_form
+            = form_for :session, :url => session_path, :html => {:id => 'new_session'} do |f|
+              = f.text_field :email, type: 'email', value: 'Email'
+              = f.text_field :password, value: 'Password'
+              %a.btn_login{href: "#", onclick: "$('#new_session').submit();"} Login
+              %p
+                = link_to 'Forgot Username or Password?', new_password_path, class: 'forgot_password'
+                = link_to 'SIGN UP NOW', sign_in_path, :class => 'signup_home'
+              = link_to " ".html_safe, "/auth/facebook", class: 'btn_facebook'
+              = link_to " ".html_safe, "/auth/google_oauth2", class: 'btn_googleplus'

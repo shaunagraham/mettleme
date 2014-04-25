@@ -1,0 +1,105 @@
+.left_navigation
+  %h3 Type
+  .location_sort
+    %ul
+      %li
+        %input#c1.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c1"}
+          %span
+          Accessories
+      %li
+        %input#c2.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c2"}
+          %span
+          Dresses
+      %li
+        %input#c3.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c3"}
+          %span
+          Pants
+      %li
+        %input#c4.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c4"}
+          %span
+          Skirts
+      %li
+        %input#c5.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c5"}
+          %span
+          Tops
+  %h3 Price
+  .location_sort
+    #slider-range
+    %input#amount.filter{type: "text"}/
+  %h3 Colors
+  .colors_sort
+    %ul
+      %li
+        %a.light_blue{href: "#"}  
+      %li
+        %a.dark_blue{href: "#"}  
+      %li.active
+        %a.purple{href: "#"}  
+      %li
+        %a.pink{href: "#"}  
+      %li
+        %a.red{href: "#"}  
+      %li
+        %a.dark_orange{href: "#"}  
+      %li
+        %a.light_orange{href: "#"}  
+      %li
+        %a.light_green{href: "#"}  
+      %li
+        %a.dark_green{href: "#"}  
+      %li
+        %a.off_green{href: "#"}  
+      %li
+        %a.white{href: "#"}  
+      %li
+        %a.grey{href: "#"}  
+      %li
+        %a.dark_grey{href: "#"}  
+      %li
+        %a.black{href: "#"}  
+    .clr
+  %h3 Style
+  .location_sort.style
+    %ul
+      %li
+        %input#c6.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c6"}
+          %span
+          Blazers
+      %li
+        %input#c7.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c7"}
+          %span
+          Striped Dresses
+      %li
+        %input#c8.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c8"}
+          %span
+          Art Prints
+      %li
+        %input#c9.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c9"}
+          %span
+          Chunky Sweaters
+      %li
+        %input#c10.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c10"}
+          %span
+          Anchor Earrings
+      %li
+        %input#c11.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c11"}
+          %span
+          Paint T-Shirts
+      %li
+        %input#c12.filter{name: "cc", type: "checkbox"}/
+        %label{for: "c12"}
+          %span
+          Floral
+  %a.btn_clearfilters{href: "#"}  
+= render 'application/filters/javascript', url: store_path(@store, pagination_params)

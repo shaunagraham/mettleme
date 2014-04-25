@@ -1,0 +1,15 @@
+%ul
+  - @products.each do |product|
+    %li
+      %span.action_btns
+        / <a class="btn_delete_item"><span> </span></a>
+        = link_to ' '.html_safe, product_path(product), class: 'btn_view_item'
+      = link_to image_tag(product.image), product_path(product)
+      %br/
+      = product.name
+      %br/
+      %span
+        %em Dress
+      %br/
+      %span.price
+        $#{product.price}

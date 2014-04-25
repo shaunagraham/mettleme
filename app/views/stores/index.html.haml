@@ -1,0 +1,16 @@
+:javascript
+  $(function()
+  	{
+  		$('.scroll-pane').jScrollPane();
+  	});
+.row
+  = render 'breadcrumb'
+  = render 'spotlights'
+  %div{style: "padding:10px 0; float:left; width:100%;"}
+  .content_wrapper
+    = render 'application/filters/stores/index'
+    .right_product_listing
+      .clr
+      #listing.store_listing
+        = render 'listings/stores/index'
+      .clr

@@ -1,0 +1,179 @@
+- if params[:preview_button]
+  #maincontainer
+    .clr
+    .blue_banner
+      = link_to 'Back to Edit',  edit_user_store_path(@store), class: 'back_to_edit'
+    .clr
+    .clr
+    .content_wrapper
+      .store_info
+        .store_image= image_tag 'store-pic.png'
+        .store_details
+          %h2= @store.name
+          %p
+            %strong Store Owner:
+            = @store.owner_name
+          %p
+            %strong Location:
+            = @store.city
+            , #{@store.country}
+          %p
+            %strong About:
+            = @store.description
+          %p
+            %strong Follow:
+            = link_to " ".html_safe, @store.facebook_url, class: 'fb' if @store.facebook_url.present?
+            = link_to " ".html_safe, @store.twitter_url, class: 'tw' if @store.twitter_url.present?
+            = link_to " ".html_safe, @store.youtube_url, class: 'yt' if @store.youtube_url.present?
+            = link_to " ".html_safe, @store.tumblr_url, class: 'tmblr' if @store.tumblr_url.present?
+        .clr
+      - if @store.products
+        .empty_store
+          %h3
+            Your store is empty.
+            %span
+              = link_to 'Add New Item', new_user_product_path, class: 'btn_additem'
+    .clr
+    .clr
+- else
+  .row
+    .content_wrapper
+      = render 'authenticated/sidebar'
+      .large-10.columns
+        #example-one.jobs-sec
+          = render 'authenticated/tabs/store'
+          .list-wrap
+            #create-store
+              .grey-form
+                - if @store.new_record?
+                  %h2 Create Your Store
+                - else
+                  %h2 Edit Your Store
+                = form_for @store, url: user_store_path, html: {id: 'store_form'} do |f|
+                  %aside
+                    %ul
+                      %li
+                        %label
+                          Store Name
+                          %span *
+                        %div
+                          %p www.mettleme.com/
+                          = f.text_field :name, style: 'width: 225px;'
+                  %aside
+                    %ul
+                      %li
+                        %label
+                          Store Owner
+                          %span *
+                        %div
+                          = f.text_field :owner_name
+                  %aside
+                    %ul
+                      %li
+                        %label
+                          Country
+                          %span *
+                        %div
+                          = f.country_select :country, priority: %w(US CA), prompt: 'Please select a country'
+                      %li
+                        %label
+                          State
+                          %span *
+                        %div
+                          = render partial: 'subregion_select', locals: {parent_region: f.object.country}
+                      %li
+                        %label
+                          City
+                          %span *
+                        %div
+                          = f.text_field :city
+                  %aside
+                    %ul
+                      %li
+                        %label
+                          About
+                          %span *
+                        %div
+                          = f.text_area :description
+                          %span Tell about yout store. Up to 100 characters.
+                  %aside
+                    %ul
+                      %li
+                        %label
+                          Tags
+                          %span *
+                        %div
+                          = f.text_area :tag_list
+                          %span
+                            Separate tags by commas.
+                            %br/
+                            e.g. blazers, leather, emeralds
+                  %aside
+                    %ul
+                      %li
+                        %label
+                          Style
+                          %span *
+                          %br/
+                          %p (Pick only 3)
+                        .subscriber
+                          = hidden_field_tag "store[style_ids][]", nil
+                          - Style.all.each do |style|
+                            %ul.style-choose
+                              %li
+                                = check_box_tag "store[style_ids][]", style.id, @store.style_ids.include?(style.id) , :id => dom_id(style)
+                                 
+                                \#{style.name}
+                  %aside
+                    %ul
+                      %li
+                        %label Social Networks Links
+                        %div
+                          %ul
+                            %li
+                              = f.text_field :facebook_url, placeholder: 'Facebook link'
+                              = link_to (image_tag 'facebook-icon.jpg', style: 'width: 34px; height: 34px;'), @store.facebook_url
+                              %p.upload-desc e.g:https://www.facebook.com/mettleme
+                            %li
+                              = f.text_field :twitter_url, placeholder: 'Twitter link'
+                              = link_to (image_tag 'twitter-icon.jpg', style: 'width: 34px; height: 34px;'), @store.twitter_url
+                            %li
+                              = f.text_field :youtube_url, placeholder: 'YouTube link'
+                              = link_to (image_tag 'youtube-icon.jpg', style: 'width: 34px; height: 34px;'), @store.youtube_url
+                            %li
+                              = f.text_field :tumblr_url, placeholder: 'Tumblr link'
+                              = link_to (image_tag 'tumblr-icon.jpg', style: 'width: 34px; height: 34px;'), @store.tumblr_url
+                            %li
+                              = f.text_field :pinterest_url, placeholder: 'Pintrest link'
+                              = link_to (image_tag 'pinterest-icon.jpg', style: 'width: 34px; height: 34px;'), @store.pinterest_url
+                  %aside
+                    %ul
+                      %li
+                        %label Add Store Photo
+                        .store-file-upload
+                          = f.file_field :image
+                          %p.upload-desc
+                            Recommended dimensions – 300×300
+                            Maximum file size of 5MB
+                  %aside
+                    %ul
+                      %li
+                        %label
+                        .store-buttons
+                          %a.red-btn{href: "#", onclick: "$('#store_form').submit();"}
+                            - if @store.new_record?
+                              Create Store
+                            - else
+                              Save Store
+                          = submit_tag 'preview', name: 'preview_button', class: 'grey-btn'
+:javascript
+  $(function() {
+      return $('select#store_country').change(function(event) {
+          var country, select_wrapper, url;
+          select_wrapper = $('#store_state_wrapper');
+          $('select', select_wrapper).attr('disabled', true);
+          country = $(this).val();
+          url = "/user/store/subregion_options?parent_region=" + country;
+          return select_wrapper.load(url);
+      });
+  });

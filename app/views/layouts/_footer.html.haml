@@ -1,0 +1,36 @@
+.footer_wrapper.row
+  .large-5.columns
+    .social_panel
+      %p Mettle Me are collections of independent fashions for you, created by you.
+      %br/
+      %a.tw{href: "https://twitter.com/mettleme", target: "_blank"}  
+      %a.fb{href: "https://www.facebook.com/mettleme", target: "_blank"}  
+      %a{href: "#"}  
+  .large-3.columns
+    .footer_nav
+      %ul
+        %li= link_to 'Shop', recent_products_path
+        %li= link_to 'Stores', stores_path
+        %li= link_to 'Sell', sell_path
+      %ul
+        %li= link_to 'About', page_path('about')
+        %li= link_to 'Jobs', page_path('jobs/full-time')
+        %li= link_to 'Help', page_path('support/shoppers')
+        %li= link_to 'How it Works', "#"
+        %li= link_to 'Blog', 'http://mettleme.com/blog/'
+        %li= link_to 'Contact', page_path('contact')
+  .large-4.columns
+    .newsletter
+      Newsletter
+      %br/
+      = form_tag  'http://mettleme.us5.list-manage.com/subscribe/post?u=1101ce317b71e17b9baf64bfc&id=37f1bbfc82', id: 'newsletter_form' do
+        = text_field_tag 'EMAIL', 'Your email address', onBlur: "if(this.value == '') { this.value='Your email address'}", onFocus: "if (this.value == 'Your email address') {this.value=''}"
+        %a.btn_subscribe{href: "#", onclick: "$('#newsletter_form').submit();"} Subscribe
+  .large-12.columns.copyright
+    .large-6.columns
+      .fleft
+        \© #{Time.now.year} METTLE ME. ALL RIGHTS RESERVED
+    .large-6.columns
+      .fright
+        = link_to 'PRIVACY POLICY', page_path('privacy')
+        = link_to 'TERMS AND CONDITIONS', page_path('terms')

@@ -1,0 +1,121 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        = render 'authenticated/tabs/store'
+        .list-wrap
+          #create-store
+            .grey-form
+              %h2 Shipping Address Info
+              %aside
+                %ul
+                  %li
+                    %label First Name
+                    %div
+                      %input{name: "", type: "text", value: "Bob"}/
+                  %li
+                    %label Last Name
+                    %div
+                      %input{name: "", type: "text", value: "Smith"}/
+                  %li
+                  %li
+                  %li
+                    %label
+                      Country
+                      %span *
+                    %div
+                      %select.select{name: ""}
+                        %option United States
+                  %li
+                    %label
+                      State
+                      %span *
+                    %div
+                      %select.select{name: ""}
+                        %option Wyoming
+                  %li
+                    %label
+                      City
+                      %span *
+                    %div
+                      %input{name: "", type: "text", value: "Buford"}/
+                  %li
+                    %label Address
+                    %div
+                      %input{name: "", type: "text"}/
+                  %li
+                    %label ZIP Code
+                    %div
+                      %input{name: "", type: "text", value: "82052"}/
+                  %li
+                    %label Email
+                    %div
+                      %input{name: "", type: "text", value: "test@hotmail.com"}/
+                  %li
+                    %label Phone Number
+                    %div
+                      %input{name: "", type: "text", value: "+1 343 555 55 55"}/
+                      %p.upload-desc
+                        For example: +1 123 456 78 90
+                        %br/
+                        (We need it if will problem with your order)
+              %h2 Credit Card Info
+              %aside.credit-card-details
+                %ul
+                  %li
+                    %label Card Holder Name
+                    %div
+                      %input.yellow-textfield{name: "", type: "text", value: ""}/
+                  %li
+                    %label Card Number
+                    %div
+                      %input.yellow-textfield{name: "", type: "text", value: ""}/
+                  %li
+                    %label Expiration Date
+                    %div
+                      %select{name: "", style: "width:90px; margin:0 10px 0 0;"}
+                        %option Month
+                      %select{name: "", style: "width:70px"}
+                        %option Year
+                  %li
+                    %label CVC
+                    %div
+                      %input.yellow-textfield{name: "", style: "width:50px;", type: "text", value: ""}/
+                      %a.form-info{href: "#"} ?
+                  %li
+                    %label Billing Address
+                    %div
+                      %a.yes{href: "#"} YES
+                      %a.no{href: "#"} NO
+              %h2 Billing Address Info
+              %aside
+                %ul
+                  %li
+                    %label Country
+                    %div
+                      %select{name: ""}
+                        %option Choose Country
+                  %li
+                    %label State
+                    %div
+                      %select{name: ""}
+                        %option Choose State
+                  %li
+                    %label City
+                    %div
+                      %input{name: "", type: "text"}/
+                  %li
+                    %label Address
+                    %div
+                      %input{name: "", type: "text"}/
+                  %li
+                    %label ZIP Code
+                    %div
+                      %input{name: "", type: "text"}/
+              %aside
+                %ul
+                  %li
+                    %label
+                    .store-buttons
+                      %a.red-btn{href: "#"} Continue

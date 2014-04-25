@@ -1,0 +1,155 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        = render 'authenticated/tabs/store', :locals => {:@products => @products}
+        .stats-sec
+          .items-views
+            %h2 Items Views
+            %aside
+              %select{name: ""}
+                %option Last 7 days
+              %select{name: ""}
+                %option Jun 8, 2013 – Jun 14, 2013
+          .stats-det
+            = image_tag 'stats-view.jpg', :height => '287', :width => '679', :alt => 'img'
+            %div
+              %h3 395
+              %span Items views last 7 days
+            %div
+              %h3 1.890
+              %span Items views last 30 days
+            %div
+              %h3 395
+              %span Items views last 7 days
+          .stats-most-viewed
+            %h2 Most Viewed Items
+            %aside
+              %ul.most-viewed-head
+                %li
+                  .most-viewed-items Items
+                  .most-viewed-visits Visits
+                  .most-viewed-percent Percent
+              %ul.most-viewed-list
+                %li
+                  %span.mv-bullet-01
+                  .most-viewed-items 1. Item name 1
+                  .most-viewed-visits 196
+                  .most-viewed-percent 45%
+                %li
+                  %span.mv-bullet-02
+                  .most-viewed-items 2. Item name 2
+                  .most-viewed-visits 87
+                  .most-viewed-percent 10%
+                %li
+                  %span.mv-bullet-03
+                  .most-viewed-items 3. Other
+                  .most-viewed-visits 35
+                  .most-viewed-percent 11%
+                %li
+                  %span.mv-bullet-04
+                  .most-viewed-items 4. Item name 4
+                  .most-viewed-visits 11
+                  .most-viewed-percent 8%
+                %li
+                  %span.mv-bullet-05
+                  .most-viewed-items 5. Item name 5
+                  .most-viewed-visits 10
+                  .most-viewed-percent 7%
+                %li
+                  %span.mv-bullet-06
+                  .most-viewed-items 6. Item name 6
+                  .most-viewed-visits 9
+                  .most-viewed-percent 7%
+            .stats-most-viewed-graph
+              = image_tag 'most-viewed-items.jpg', :height => '203', :width => '203', :alt => 'img'
+          .top-referrals-sec
+            %h2 Top Referrals
+            %aside
+              %ul.top-referrals-head
+                %li
+                  .top-referrals Referrals
+                  .top-referrals-visits Visits
+                  .top-referrals-percent Percent
+                  .top-referrals-new-visits New Visits
+              %ul.top-referrals-list
+                %li
+                  %span 1.
+                  .top-referrals-items mettleme.com/qwerty
+                  .top-referrals-visits 196
+                  .top-referrals-percent 45%
+                  .top-referrals-new-visits 45%
+                %li
+                  %span 2.
+                  .top-referrals-items google.com
+                  .top-referrals-visits 87
+                  .top-referrals-percent 22%
+                  .top-referrals-new-visits 22%
+                %li
+                  %span 3.
+                  .top-referrals-items google.com
+                  .top-referrals-visits 35
+                  .top-referrals-percent 11%
+                  .top-referrals-new-visits 11%
+          .top-visits
+            %h2 Top Countries by Visits
+            %aside
+              %ul.top-visits-head
+                %li
+                  .top-visits-coutntry Coutntry
+                  .top-visits-visits Visits
+                  .top-visits-percent Percent
+              %ul.top-visits-list
+                %li
+                  %span 1.
+                  .top-visits-items United States
+                  .top-visits-visits 196
+                  .top-visits-percent 45%
+                %li
+                  %span 2.
+                  .top-visits-items Canada
+                  .top-visits-visits 87
+                  .top-visits-percent 22%
+                %li
+                  %span 3.
+                  .top-visits-items Addis Ababa
+                  .top-visits-visits 35
+                  .top-visits-percent 11%
+          .social-sharing
+            %h2 Social Sharing
+            %aside
+              %ul.most-viewed-head
+                %li
+                  .most-viewed-items Social
+                  .most-viewed-visits Number
+                  .most-viewed-percent Percent
+              %ul.most-viewed-list
+                %li
+                  %span
+                    = image_tag 'facebook-round-icon.png', :height => '22', :width => '22', :alt => 'Facebook'
+                  .most-viewed-items 1. Facebook
+                  .most-viewed-visits 196
+                  .most-viewed-percent 45%
+                %li
+                  %span
+                    = image_tag 'twitter-round-icon.png', :height => '22', :width => '22', :alt => 'Twitter'
+                  .most-viewed-items 2. Twitter
+                  .most-viewed-visits 87
+                  .most-viewed-percent 10%
+                %li
+                  %span
+                    = image_tag 'google-plus-round-icon.png', :height => '22', :width => '22', :alt => 'Google+'
+                  .most-viewed-items 3. Google Plus
+                  .most-viewed-visits 35
+                  .most-viewed-percent 11%
+                %li
+                  %span
+                    = image_tag 'pinterest-round-icon.png', :height => '22', :width => '22', :alt => 'Pinterest'
+                  .most-viewed-items 4. Pinterest
+                  .most-viewed-visits 11
+                  .most-viewed-percent 8%
+            .social-sharing-graph
+              = image_tag 'social-sharing-graph.jpg', :height => '199', :width => '199', :alt => 'img'
+      #money-manager.hide
+      #store-settings.hide

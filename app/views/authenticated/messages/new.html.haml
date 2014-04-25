@@ -1,0 +1,34 @@
+/
+  <haml_loud> form_for @message, url: user_messages_path do |f| </haml_loud><haml_block>
+  <p>To: [todo]</p>
+  <p>Subject: <haml_loud> f.text_field :subject </haml_loud></p>
+
+  <haml_loud> f.text_area :content </haml_loud>
+  <p><haml_loud> f.submit 'Send' </haml_loud> <haml_loud> link_to 'Cancel', user_messages_path </haml_loud></p>
+  </haml_block>
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        / < render 'authenticated/tabs/messages' -%>
+        %section#new_msg.messages_right
+          .messages_inner
+            .messages-head
+              = link_to '', user_messages_path, class: 'go_back'
+              = link_to 'CONTACT METTLEME',  page_path('contact'), class: 'cont_mettl'
+              .clr
+            .new_msg_body
+              %h3 New Message
+              = form_for [@user, @message], :url => user_messages_path, :method => :post do |f|
+                %fieldset
+                  = f.email_field :to, :placeholder => 'user@example.com'
+                  %label add email of the user to send a message .
+                %fieldset
+                  = f.text_field :topic, :placeholder => 'Title . . .'
+                %fieldset
+                  = f.text_area :body, :placeholder => 'Write Messsage  . . .'
+                %fieldset
+                  %button{'type' => 'submit'} Send
+                  = link_to 'cancel', user_messages_path, class: 'cancel'
+

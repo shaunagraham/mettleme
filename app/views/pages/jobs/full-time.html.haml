@@ -1,0 +1,25 @@
+.row
+  .content_wrapper
+    = render 'pages/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        %ul.nav
+          %li
+            = link_to 'Full time', page_path('jobs/full-time'), class: 'current'
+          %li
+            = link_to 'Part time', page_path('jobs/part-time')
+        .list-wrap
+          #fulltime
+            .fulltime
+              %section
+                %h2
+                  Account Manager
+                  %span (find out more from consultant)
+                %h3 Manage Individual Sellers Accounts
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis dolor in diam molestie, ut accumsan sapien commodo. Curabitur dolor urna, sodales a iaculis ut, condimentum ac nunc. Suspendisse sagittis pellentesque lorem sit amet rhoncus. Maecenas fermentum pretium tristique. Praesent pretium facilisis dui ac vulputate. Ut ultricies gravida purus ut cursus. Sed vitae lorem ac diam ultrices sagittis.
+              %section
+                %h2
+                  Accountant
+                  %span (find out more from consultant)
+                %h3 Billing Arrangements
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis dolor in diam molestie, ut accumsan sapien commodo. Curabitur dolor urna, sodales a iaculis ut, condimentum ac nunc. Suspendisse sagittis pellentesque lorem sit amet rhoncus. Maecenas fermentum pretium tristique. Praesent pretium facilisis dui ac vulputate. Ut ultricies gravida purus ut cursus. Sed vitae lorem ac diam ultrices sagittis.

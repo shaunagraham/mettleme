@@ -1,0 +1,35 @@
+.row
+  .content_wrapper
+    = render 'pages/sidebar'
+    .large-10.columns
+      .list-wrap
+        .contact
+          %h2 Contact Us
+          %aside
+            = form_for :contact, url: contact_path, html: {id: 'contact_form'} do |f|
+              %ul
+                %li
+                  %label
+                    Your Name
+                    %span *
+                  = f.text_field :name
+                %li
+                  %label
+                    Email Address
+                    %span *
+                  = f.text_field :email
+                %li
+                  %label
+                    Why Contact Us?
+                    %span *
+                  = f.select :reason_for_contact, {'Billing' => 'Billing', 'Technical Support' => 'Technical Support', 'General Inquiries' => 'General Inquires'}
+                %li
+                  %label Username
+                  = f.text_field :username
+                %li
+                  %label
+                    Your  Message
+                    %span *
+                  = f.text_area :message
+          .contact-send
+            %input.send-btn{onclick: "$('#contact_form').submit();", type: "button", value: "Send"}/

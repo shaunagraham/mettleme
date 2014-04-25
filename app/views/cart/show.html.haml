@@ -1,0 +1,53 @@
+.row
+  .content_wrapper
+    %h1 Your Cart
+    %table.cart_table_heading{border: "0", cellpadding: "5", cellspacing: "0", width: "100%"}
+      %tr
+        %td item
+        %td{align: "center"} Price
+        %td{align: "center"} Quantity
+        %td{align: "center", style: "border-right:0px;"} Total
+        %td{style: "border-right:1px solid #cccccc;"}  
+      - if @cart.items.none?
+        %tr
+          %td{colspan: "5", style: "text-align: center; padding: 20px 0;"} No Items
+      - else
+        - @cart.items.each do |item|
+          %tr
+            %td
+              %table{border: "0", cellpadding: "0", cellspacing: "0", width: "100%"}
+                %tr
+                  %td{width: "20%"}= image_tag 'cart-pic.jpg', alt: 'cart'
+                  %td{width: "80%"}
+                    = link_to item.product.name, product_path(item.product)
+                    %br/
+                    %span.store_name= item.product.store.name
+                    %br/
+                    %em Dress
+            %td{align: "center"}
+              \&dollar;#{item.product.price}
+            %td{align: "center"}
+              = form_for item, :url => cart_update_path(item) do |f|
+                = f.text_field :quantity
+                = f.submit 'Update'
+            %td{align: "center"}
+              %span.total
+                \&dollar;#{item.product.price * item.quantity}
+            %td{align: "center"}
+              = link_to ' '.html_safe, remove_from_cart_path(item), class: 'btn_delete', method: :delete, confirm: 'Are you sure you want to delete this item from your cart?'
+    %table.sub_total{border: "0", cellpadding: "10", cellspacing: "0", width: "50%"}
+      - if @cart.items.any?
+        %tr
+          %td{align: "right"} SUBTOTAL
+          %td{align: "left"}
+            %span.sub_total
+              \&dollar;#{@cart.total}
+        %tr
+          %td{align: "center"}
+            = link_to '<span><img src="/assets/arrow-blk.png" alt=""></span> Continue Shopping'.html_safe, continue_shopping_path, class: 'btn_continue'
+          %td{align: "center"}
+            = link_to 'Checkout', cart_checkout_path, class: 'btn_checkout'
+      - else
+        %tr
+          %td{align: "center"}
+            = link_to '<span><img src="/assets/arrow-blk.png" alt=""></span> Continue Shopping'.html_safe, continue_shopping_path, class: 'btn_continue', style: 'float: right; margin-right: 15px;'

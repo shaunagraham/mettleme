@@ -1,0 +1,6 @@
+%ul.nav
+  %li= link_to_orders
+  - if @user.seller?
+    %li= link_to 'Your Store', edit_user_store_path
+  - else
+    %li= link_to 'Become A Seller', register_seller_user_path

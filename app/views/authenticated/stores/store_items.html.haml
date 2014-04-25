@@ -1,0 +1,34 @@
+#maincontainer
+  .clr
+  .blue_banner
+    = link_to 'Back to Edit',  edit_user_store_path(@store), class: 'back_to_edit'
+  .clr
+  .clr
+  .content_wrapper
+    .store_info
+      .store_image= image_tag 'store-pic.png'
+      .store_details
+        %h2 Mariel Rojo
+        %p
+          %strong Store Owener:
+          Mariel Rojo #{link_to "(on map)", "#", class: 'grey'}
+        %p
+          %strong Location:
+          Philadelphia, Pennsylvania
+        %p
+          %strong About:
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ut augue ac lorem placerat pharetra. Duis at lorem eget justo ultrices laoreet. Praesent faucibus sollicitudin magna.
+        %p
+          %strong Follow:
+          %a.fb{href: "#"}  
+          %a.tw{href: "#"}  
+          %a.yt{href: "#"}  
+          %a.tmblr{href: "#"}  
+      .clr
+    .empty_store
+      %h3
+        Your store is empty.
+        %span
+          %a.btn_additem{href: "#"} Add New Item
+  .clr
+  .clr

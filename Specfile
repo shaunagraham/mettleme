@@ -1,0 +1,10 @@
+# Specfile
+spec 'spec/spec_helper.rb', 'spec/**/*'
+spec 'spec/support/.+\.rb', 'spec/**/*'
+spec '(spec/.+_spec\.rb)',  '\1'
+spec 'lib/(.+)\.rb',        'spec/lib/\1_spec.rb'
+spec 'app/(.+)\.rb',        'spec/\1_spec.rb'
+spec 'config/routes.rb',    'spec/routing/**/*'
+spec 'config/routes.rb',    'spec/controllers/**/*'
+spec 'app/controllers/(.+)_controller\.rb', 'spec/routing/\1_routing_spec.rb'
+spec 'app/controllers/(.+)_controller\.rb', 'spec/controllers/\1_controller_spec.rb'

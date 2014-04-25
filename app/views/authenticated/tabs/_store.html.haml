@@ -1,0 +1,27 @@
+%ul.nav
+  %li= link_to_current 'My Store', edit_user_store_path
+  %li
+    = link_to_current "My Items (#{ current_user.store.present? ? current_user.store.products.count.to_s : '0'})", user_products_path
+  / <li>link_to 'Stats', stats_user_products_path %></li>
+  %li= link_to 'Money Manager',  year_money_user_path
+  %li= link_to 'Settings', settings_user_store_path
+- if controller_name == 'products' and action_name == "index"
+  .my-items-buttons
+    = link_to 'Add New Item', new_user_product_path, class: 'add-new-item-btn'
+- elsif (controller_name == 'products' and action_name == "stats") or (controller_name == 'stores' and action_name == "analytics")
+  .stats-view-buttons
+    %a{href: "#"} Store page Views
+    = link_to 'Item Views', stats_user_products_path, class: 'active'
+    = link_to 'Google Analytics', analytics_user_store_path
+- elsif controller_name == 'users' and (action_name == "year_money" or action_name == "month_money")
+- elsif controller_name == 'stores' and action_name == "settings"
+- elsif controller_name == 'stores'
+  .in-store-buttons
+    - if !@store.active
+      = form_for @store, url: user_store_path do |f|
+        = f.hidden_field :active, value: true
+        = f.submit 'Activate My Store', class: 'activate-my-store-btn'
+    - else
+      = form_for @store, url: user_store_path do |f|
+        = f.hidden_field :active, value: false
+        = f.submit 'Deactivate My Store', class: 'deactivate-my-store-btn'

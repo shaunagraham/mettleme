@@ -1,0 +1,14 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        = render 'authenticated/tabs/store', :locals => {:@products => @products}
+        .list-wrap
+          #stats
+            .gogle-analytics
+              %h2 Please past your code in the field below
+              %textarea{cols: "", name: "", rows: ""}
+              %aside
+                %a.red-btn{href: "#"} Apply
+                %a.grey-btn{href: "#"} Cancel

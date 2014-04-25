@@ -1,0 +1,7 @@
+%h2 Ready to Start Selling?
+= form_for @user, :url => user_path do |f|
+  %p
+    %label PayPal ID
+    = f.text_field :paypal_id
+  %p= f.submit 'Start Selling', :disable_with => 'Please wait...'
+  = hidden_field_tag :registered_seller, true

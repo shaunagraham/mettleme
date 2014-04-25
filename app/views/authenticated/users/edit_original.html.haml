@@ -1,0 +1,33 @@
+%h2 Your User Account
+= form_for @user, :url => user_path do |f|
+  %p
+    %label First Name
+    = f.text_field :first_name
+  %p
+    %label Last Name
+    = f.text_field :last_name
+  %p
+    %label Email
+    = f.text_field :email
+  %p
+    %label Country
+    = f.select :country_id, options_for_id_select(:country)
+  %p
+    %label State
+    = f.select :state_id, options_for_id_select(:state)
+  %p
+    %label City
+    = f.text_field :city
+  %p
+    %label Zip Code
+    = f.text_field :zip_code
+  %p
+    %label Change password (leave blank to keep current password)
+    = f.password_field :password, :value => nil
+  %p= f.submit 'Save Changes', :disable_with => 'Please wait...'
+%h2 Delete My Account
+= form_for @user, url: user_path, html: {method: :delete} do |f|
+  %p
+    = check_box_tag :confirm_destroy
+    I understand all data will be permanently deleted
+  %p= link_to 'Delete my account'

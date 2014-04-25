@@ -1,0 +1,43 @@
+.sorting_area
+  .itemperpage
+    %span items per page:
+    = link_to_per_page 30
+    = link_to_per_page 60
+    = link_to_per_page 90
+    = link_to_view_all unpaginated_collection
+  .sortby
+    %span Sort by:
+    = select_tag :sortby_input,      |
+      options_for_select([           |
+      ['New', 'new'],                |
+      ['High to Low', 'high-price'], |
+      ['Low to High', 'low-price']], |
+      params[:sort_by]),             |
+      class: 'sortby_input'          |
+    %script{charset: "utf-8", type: "text/javascript"}
+      :cdata
+        $('#sortby_input').live('change', function() {
+        var sort_by = $(this).val();
+        var url;
+
+        switch (sort_by) {
+        case 'new':
+        url = "#{sort_url('new')}";
+        break;
+        case 'high-price':
+        url = "#{sort_url('high-price')}";
+        break;
+        case 'low-price':
+        url = "#{sort_url('low-price')}";
+        break;
+        default:
+        url = window.location;
+        }
+
+        window.location = url;
+        });
+  .pagination
+    %span Page:
+    %div
+      = will_paginate collection
+  .clr

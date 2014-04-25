@@ -1,0 +1,11 @@
+.large-2.columns
+  .left_navigation
+    %ul
+      = sidebar_list_item_link_to 'My Profile', edit_user_path, class: 'nav_pro'
+      = sidebar_list_item_link_to 'Sell', register_seller_user_path, class: 'nav_sel'
+      = sidebar_list_item_link_to 'Favorites', products_user_favorites_path, class: 'nav_fav'
+      = sidebar_list_item_link_to 'Messages', user_messages_path, class: 'nav_msg'
+      = sidebar_list_item_link_to 'Orders', user_orders_path, class: 'nav_ord'
+      - # sidebar_list_item_link_to 'Help', page_path('support/shoppers'), class: 'nav_hlp'
+      = sidebar_list_item_link_to 'Help', help_user_path, class: 'nav_hlp'
+      = sidebar_list_item_link_to 'Log out', sign_out_path, :method => :delete, class: 'nav_log'

@@ -1,0 +1,192 @@
+.row
+  .content_wrapper
+    - if current_user
+      = render 'authenticated/sidebar'
+    - else
+      = render 'pages/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        %ul.nav
+          %li= link_to 'Shoppers Guide', page_path('support/shoppers')
+          %li= link_to 'Sellers Guide', page_path('support/sellers'), class: 'current'
+        .list-wrap
+          #seller
+            .seller
+              %section
+                %h3 About
+                %p Mettle Me offers the opportunity for emerging artist to showcase and sell their products. To be apart of this community, you must follow certain criteria.
+              %section
+                %h3 The Seller Guide
+                %p All Sellers must be honest and motivated by their belief in their craft.  Moral and high standards of ethical behavior are required in becoming a seller.
+                %ul
+                  %li 1. Seller Criteria (This could be – Who Can Become A Seller) see above
+                  %li
+                    2. The Rules
+                    %ul
+                      %li 2.1	You would have to have your own designs either as an individual group.
+                      %li 2.2	Only one design name per store – no multiple designers per an account
+                      %li 2.3	You can represent ONE designer under their behalf. Example, John represents Mary Earrings. John has opened and operated the sales for Mary the earring designer (maybe an image or infographic)
+                      %li 2.4	All designers must have been in business for at least 3 months with quality and verified items.
+                      %li
+                        2.5	All designers will be accepted on the basis of:
+                        %ul
+                          %li Store Longevity
+                          %li Client History
+                          %li Previous History
+                          %li Store Longevity
+                  %li
+                    3. Transactions, Fees & Payments
+                    %ul
+                      %li 3.1    Each transaction is directly deposited to your paypal account
+                      %li 3.2    We charge 15% of each sell – So if an item is $100, our fee is $15.
+                      %li 3.3    All Items are listed for free and once published it must be verified. Verification takes 24 hours.
+              %section
+                %h3 Who Can Become a Seller
+                %p
+                  Anyone that creates custom made clothing or accessories in stock or made to order can be a seller.
+                  Here are our categories:
+                .pd-list
+                  %div
+                    %h4 Accessories:
+                    %ul
+                      %li Anklets
+                      %li Bags
+                      %li Belts
+                      %li Bracelets
+                      %li Cases (for cell phones)
+                      %li Crowns
+                      %li Gloves
+                      %li Hats
+                      %li Head Bands
+                      %li Hair Decor
+                  %div
+                    %h4
+                    %ul
+                      %li Necklaces
+                      %li Rings
+                      %li Scarves
+                      %li Sunglasses
+                      %li Ties
+                      %li Watches
+                      %li Wallets
+                  %div
+                    %h4 Dresses:
+                    %ul
+                      %li Mini
+                      %li Midi
+                      %li Maxi
+                      %li Casual
+                      %li Cocktail
+                      %li Day
+                      %li Evening
+                      %li Jersey
+                      %li Party
+                      %li Wedding
+                  %div
+                    %h4 Skirts:
+                    %ul
+                      %li Mini
+                      %li Midi
+                      %li Maxi
+                      %li Casual
+                      %li Cocktail
+                      %li Day
+                      %li Evening
+                      %li Jersey
+                      %li Party
+                  %div
+                    %h4 Pants:
+                    %ul
+                      %li Jeans
+                      %li Leggings
+                      %li Harem
+                      %li Sweatpants
+                      %li Corduroy
+                      %li Capris
+                      %li Trousers
+                      %li Casual
+                      %li Shorts
+                .pd-list
+                  %div
+                    %h4 Jumpsuits:
+                    %ul
+                      %li Bodysuits
+                      %li Overalls
+                      %li Playsuits
+                      %li Jumpers
+                      %li Rompers
+                  %div
+                    %h4 Tops:
+                    %ul
+                      %li Blouses
+                      %li Cardigans
+                      %li T-Shirts
+                      %li Tanks
+                      %li Sweaters
+                      %li Shirts
+                  %div
+                    %h4 Swimwear:
+                    %ul
+                      %li Bikini
+                      %li Full
+                  %div
+                    %h4 Intimates:
+                    %ul
+                      %li Lingerie
+                      %li Underwear
+                      %li Thongs
+                      %li Bras
+                      %li Sleepwear
+                  %div
+                    %h4 Outerwear:
+                    %ul
+                      %li Blazers
+                      %li Coats
+                      %li Jackets
+                      %li Vest
+                .pd-red
+                  %span No Shoes
+                  %span No Used Products
+                  %span No Vintage
+                  %span No Supplies
+                  %span No Electronics
+                  %span No Boutiques
+                .join-now
+                  %h1 Join now
+                  %ul
+                    %li Be Apart of a Selective Community of Creative Designers Across the Globe
+                    %li Follow Your Passions
+                    %li Build Your Brand and Be Your Own Boss
+                  = link_to 'View Complete Guide on Launching Your Store >>', sign_in_path, class: 'join-now-link'
+                  = link_to 'Launch Your Store Now for Free', sign_in_path, class: 'launch-store'
+                .create-store
+                  %h3 Creating Your Store
+                  %p All Sellers must be honest and motivated by their belief in their craft.  Moral and high standards of ethical behavior are required in becoming a seller.
+                  %ul
+                    %li All Stores and Item Descriptions are needed with imaging
+                    %li Listing Your Items – with image with each one
+                    %li Sizing Information (chart will need to be added)
+                    %li Photography (Do’s and Don’t Examples) with sizing – I will add 3 examples of Do’s and Don’ts
+                    %li
+                      Shipping Terms – with imaging
+                      %p Store owners are responsible creating you’re their own system on
+                    %li
+                      Messaging – explain between shoppers and sellers
+                      %p Shoppers and sellers communicates through our system, you will receive an email if a shopper contacts you, however, messaging response is required from our portal.
+                    %li
+                      Delivery  Store Policy
+                      %p Sellers are responsible for honestly setting accurate deliver times and store policies
+                    %li Payment Processing
+                    %li Disputes
+                    %li
+                      Closing Your Account
+                      %p Any seller can close their account at anytime. If for any reason they want to re-open, they would have to start from scratch as everything will be deleted. You can delete your account in Settings.
+              %section
+                %h3 DMCA Notice
+                %p Praesent id pulvinar ante. Duis id ultricies odio, ut aliquam mauris. Proin malesuada libero nec lacus accumsan, nec semper arcu pulvinar.
+              %section
+                %h3 Common Law Trademark
+                %p Praesent id pulvinar ante. Duis id ultricies odio, ut aliquam mauris. Proin malesuada libero nec lacus accumsan, nec semper arcu pulvinar.
+              %section
+                %h3 Billing
+                %p Will send invoice and must be either paid or automatically billed within 7 days of the monthly invoice if a sale has been made.

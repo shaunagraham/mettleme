@@ -1,0 +1,90 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        %ul.nav
+          %li= link_to 'Create a Store', edit_user_store_path, class: 'current'
+        .list-wrap
+          #create-store
+            .grey-form
+              %h2 Ready to Start Selling?
+              = form_for @user, :url => user_path do |f|
+                %aside
+                  %ul
+                    %li
+                      %label
+                        First Name
+                        %span *
+                      %div= f.text_field :first_name
+                    %li
+                      %label
+                        Last Name
+                        %span *
+                      %div= f.text_field :last_name
+                %aside
+                  %ul
+                    %li
+                      %label
+                        PayPal ID
+                        %span *
+                      %div= f.text_field :paypal_id
+                %aside
+                  %ul
+                    %li
+                      %label
+                        Country
+                        %span *
+                      %div= f.country_select :country, priority: %w(US CA), prompt: 'Please select a country'
+                    %li
+                      %label
+                        State
+                        %span *
+                      %div= render partial: 'subregion_select', locals: {parent_region: f.object.country}
+                    %li
+                      %label
+                        City
+                        %span *
+                      %div= f.text_field :city
+                    %li
+                      %label
+                        ZIP Code
+                        %span *
+                      %div= f.text_field :zip_code
+                    %li
+                      %label Phone Number
+                      %div
+                        = f.text_field :phone_number
+                        %span For example: +1 123 456 78 90
+                %aside
+                  .form-agree
+                    %input#agree{name: "agree", style: "display: block;", type: "checkbox"}/
+                    %label
+                      I agree to the Mettle Me
+                      %a{href: "#"} Terms and Conditions
+                .grey-form-button
+                  = f.submit 'Continue', :disable_with => 'Please wait...', id: 'continue',  class: 'red-btn'
+                = hidden_field_tag :registered_seller, true
+          #store-setting.hide
+:javascript
+  $(function() {
+      return $('select#user_country').change(function(event) {
+          var country, select_wrapper, url;
+          select_wrapper = $('#user_state_wrapper');
+          $('select', select_wrapper).attr('disabled', true);
+          country = $(this).val();
+          url = "/user/subregion_options?parent_region=" + country;
+          return select_wrapper.load(url);
+      });
+  });
+
+
+  $('.edit_user').on('submit', function (e) {
+
+      agree = $("#agree")
+      if (!agree.prop('checked')) {
+          e.preventDefault();
+          alert('please check terms');
+          return false;
+      }
+  });

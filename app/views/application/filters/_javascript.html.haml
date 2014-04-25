@@ -1,0 +1,10 @@
+%script{charset: "utf-8", type: "text/javascript"}
+  :cdata
+    $('.filter').live('change', function () {
+    \// reload listing section using filters, via AJAX
+    var filter_params = {};
+    
+    $.get('#{url}', filter_params, function(data) {
+    $('#listing').html(data);
+    });
+    });

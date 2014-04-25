@@ -1,0 +1,36 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        %section#inbox.messages_right
+          .messages_inner
+            .messages-head
+              .chkbox
+                %input#check_all{id: "checkall", type: "checkbox"}/
+              = link_to 'NEW MESSAGE', new_user_message_path , class: 'new_msg'
+              = button_tag 'DELETE', id: 'message_delete_id', class: 'delete'
+              = link_to 'CONTACT METTLEME',  page_path('contact'), class: 'cont_mettl'
+              .clr
+            .inbox-body
+              = form_tag destroy_multiple_user_messages_path, id: 'delete_message_form', method: :delete do
+                %table{border: "0", cellpadding: "0", cellspacing: "0", width: "738"}
+                  - @messages.each do |message|
+                    %tr.sep
+                    %tr
+                      %td.chkbox
+                        = check_box_tag "message_ids[]", message.id, false, {:class => 'message_check'}
+                      %td.sender
+                        %h4= User.find(message.sent_messageable_id).email
+                        %p.time= message.created_at.strftime("%m/%d/%Y at %I:%M %p")
+                      %td.content
+                        %h4= link_to message.body.truncate(30), user_message_trail_message_path(message)
+                        %p.time= message.created_at.strftime("%m/%d/%Y at %I:%M %p")
+                      %td.attachment  
+            .clr
+          .sorting_area
+            .pagination
+              %span Page:
+              %div
+                = will_paginate @messages
+            .clr

@@ -1,0 +1,68 @@
+.header_wrapper.row
+  .large-4.columns
+    .logo
+      = link_to image_tag('logo.png'), root_path
+  .large-4.columns
+    .top_nav
+      %ul
+        %li= link_to 'SHOP', recent_products_path
+        %li= link_to 'STORES', stores_path
+        %li= link_to 'SELL', sell_path
+        %li= link_to 'HOW IT WORKS', "#"
+  .large-4.columns
+    .search_container
+      - if signed_in?
+        .login
+          %ul.menu
+            %li= link_to 'Cart', cart_path, :class => 'icon_basket'
+            %li
+              = link_to 'My Account', edit_user_path, :class => 'icon_register'
+              %ul
+                %li= link_to 'My Profile', edit_user_path
+                %li= link_to 'Sell', register_seller_user_path
+                %li= link_to 'Favorites', products_user_favorites_path
+                %li= link_to 'Messages', user_messages_path
+                %li= link_to 'Orders', user_orders_path
+                %li= link_to 'Help', help_user_path
+                %li= link_to 'Logout', sign_out_path, :class => 'icon_login', method: :delete
+      - else
+        .login
+          %ul
+            %li= link_to 'Cart', cart_path, :class => 'icon_basket'
+            %li
+              = link_to 'Join/Login', sign_in_path, :class => 'icon_register'
+              .login_popup
+                .arrow_login= image_tag 'arrow-popup1.png', width: '21', height: '14', alt: "arrow-popup"
+                = form_for :session, url: session_path, html: {id: 'new_session_2'} do |form|
+                  %p
+                    Email
+                    %br/
+                    = form.text_field :email, type: 'email', :class => 'login_input'
+                  %p
+                    Password
+                    %br/
+                    = form.password_field :password, :class => 'login_input'
+                  %p
+                    = link_to 'LOGIN', '#', onclick: '$("#new_session_2").submit();', :class => 'btn_red'
+
+                    = link_to 'Forgot password?', new_password_path, :class => 'forgot_pass'
+                  %br
+                  .signup
+                    %p
+                      %b
+                        = link_to 'SIGN UP NOW', sign_in_path, :class => 'signup_popup'
+                  %br
+                  .social_icons
+                    %p or login with
+                    %p
+                      = link_to " ".html_safe, "/auth/facebook", :class => 'btn_facebook'
+                      = link_to " ".html_safe, "/auth/google_oauth2", :class => 'btn_googleplus'
+      .search_bar
+        - if controller_name == 'stores' or controller_name == 'products'
+          = text_field_tag :search_sunspot, params[:search]
+        - else
+          = form_tag recent_products_path, :method => :get do
+            = text_field_tag :search
+  - if flash[:notice].present?
+    #flash
+      = flash[:notice]

@@ -1,0 +1,309 @@
+.row
+  = render 'breadcrumb'
+  .body_content
+    .left_container
+      %section#prod_images
+        .thumbnails
+          .thumb.active
+            = image_tag 'dress_pager1.png'
+            /
+          .thumb
+            = image_tag 'dress_pager2.png'
+            /
+          .thumb
+            = image_tag 'dress_pager1.png'
+            /
+          .thumb
+            = image_tag 'dress_pager2.png'
+            /
+          .thumb
+            = image_tag 'dress_pager1.png'
+            /
+          .thumb
+            = image_tag 'dress_pager2.png'
+            /
+        .images
+          %figure.image.current
+            = image_tag @product.image, width: '400',  height: '800'
+            /
+          %figure.image
+            = image_tag 'dress_img2.jpg'
+            /
+          %figure.image
+            = image_tag 'dress_image3.png'
+            /
+          %figure.image
+            = image_tag 'dress_img3.jpg'
+            /
+          %figure.image
+            = image_tag 'dress_image2.png'
+            /
+          %figure.image
+            = image_tag 'dress_image3.png'
+            /
+        .clr
+        / Share
+        .share_it
+          %span.st_twitter_hcount{displaytext: "Tweet"}
+          %span.st_linkedin_hcount{displaytext: "LinkedIn"}
+          %span.st_pinterest_hcount{displaytext: "Pinterest"}
+          %span.st_fblike_hcount{displaytext: "Facebook Like"}
+
+
+      .fb_twt
+        %p
+          = like_button(OORConstant.facebook_app_id, href: "https://www.facebook.com/mettleme")
+          = tweet_button(count: :horizontal, url: "http://mettleme.herokuapp.com")
+          = google_plus_button(size: "medium", href: "http://mettleme.herokuapp.com", annotation: "bubble")
+          = pinit_button
+
+
+
+          -#%a{href: "#"}
+          -#  = image_tag 'facebbok.png'
+          -#  /
+          -#%a{href: "#"}
+          -#  = image_tag 'twitter.png'
+          -#  /
+          -#%a{href: "#"}
+          -#  = image_tag 'g+.png'
+          -#  /
+          -#%a{href: "#"}
+          -#  = image_tag 'pinit.png'
+          -#  /
+
+    .right_container
+      %h1= @product.name
+      %ul.store_n
+        %li Dresses
+        %li |
+        %li
+          Store:
+          = link_to @product.store.name, @product.store
+      %h3= "$#{@product.price} USD"
+      .make_order
+        .item_options
+          .opt_buttons
+            %li.opt_btn.dark IN STOCK
+            %li.opt_btn.dark MAKE TO ORDER
+          .sel_size.option
+            %h4 select size:
+            %fieldset
+              %input#radio1{name: "radio1", type: "radio"}/
+              %label.rad_box{for: "radio1"} S
+              %input#radio2{name: "radio1", type: "radio"}/
+              %label.rad_box{for: "radio2"} M
+              %input#radio3{name: "radio1", type: "radio"}/
+              %label.rad_box{for: "radio3"} L
+          .mad_to_ord.option
+            %fieldset
+              %input{name: "", type: "text", value: ""}/
+              %br/
+              %label height
+            %fieldset
+              %input{name: "", type: "text", value: ""}/
+              %br/
+              %label bust
+            %fieldset
+              %input{name: "", type: "text", value: ""}/
+              %br/
+              %label waist
+            %fieldset
+              %input{name: "", type: "text", value: ""}/
+              %br/
+              %label hips
+            %fieldset
+              %p.desc (in inches)
+            .clr
+        .add_cart
+          = link_to 'add to cart', add_to_cart_path(@product), method: :put, class: 'cart'
+          - if @user
+            - unless @user.favourites.products.include? @product
+              = link_to_add_favourite(@product)
+        .clr
+        #tabs
+          %ul
+            %li
+              %a{href: "#tabs-1"} detail
+            %li
+              %a{href: "#tabs-2"} size chart
+            %li
+              %a{href: "#tabs-3"} contact seller
+          #tabs-1.tab
+            %p Majestic evening dress in deep emerald featuring a mermaid silhouette, assymetrical embroidery and an eye-catching lack back floral design.
+            %ul
+              %li
+                %label> style:
+                Classic
+              %li
+                %label> Material:
+                Satin
+              %li
+                %label Color:
+                = image_tag 'dark_pink.png'
+              %li
+                %label> ships:
+                2 days
+          #tabs-2.tab
+            .women_size_chart
+              %h4 women size chart
+              %ul.size_by_contry
+                %li.border_top_none  
+                %li usa
+                %li uk
+              %ul.size_by_length
+                %li.border_top_none s
+                %li 6
+                %li 10
+              %ul.size_by_length
+                %li.border_top_none m
+                %li 8
+                %li 12
+              %ul.size_by_length
+                %li.border_top_none l
+                %li 10
+                %li 14
+            .clr
+            .men_size_chart
+              %h4 men size chart
+              %ul.size_by_contry
+                %li.border_top_none  
+                %li usa
+                %li uk
+              %ul.size_by_length
+                %li.border_top_none s
+                %li 36
+                %li 36
+              %ul.size_by_length
+                %li.border_top_none m
+                %li 38
+                %li 38
+              %ul.size_by_length
+                %li.border_top_none l
+                %li 40
+                %li 40
+          #tabs-3.tab.contact
+            - if !current_user
+              .not_logged
+                = link_to 'Create an Account', sign_in_path, class: 'create_acc'
+                %br/
+                %h3 to Contact Seller
+            %br/
+            = form_for [current_user, @message], :url => user_messages_path, :method => :post do |f|
+              %fieldset
+                = f.hidden_field :to, :value => @product.store.user.email
+                %label Your Name
+                = text_field_tag :name
+                %span.clearfix
+              %fieldset
+                %label Subject
+                = f.text_field :topic
+                %span.clearfix
+              %fieldset
+                %label Message
+                = f.text_area :body
+                %span.clearfix
+              %fieldset
+                %label  
+                - if current_user
+                  %button{type: "submit"} SEND MESSAGE
+                %span.clearfix
+  .clr
+  %section#more_products
+    %h2 More Products
+    .slider
+      - @product.store.products.each_slice(6).to_a.each do |product_list|
+        .slide
+          - product_list.each do |product|
+            - if product_list.last == product
+              .product.last
+                %figure              
+                  = link_to image_tag(product.image), product_path(product)
+                %span.dark= product.name
+                %br/
+                %span.light= product.store.name
+                %br/
+                %span.dark Dress
+                %br/
+                %span.price= product.price
+            - else
+              .product
+                %figure              
+                  = link_to image_tag(product.image), product_path(product)
+                %span.dark= product.name
+                %br/
+                %span.light= product.store.name
+                %br/
+                %span.dark Dress
+                %br/
+                %span.price= product.price
+          .clearfix
+        
+      
+
+:javascript
+    $(document).ready(function(){
+        $(".item_listing").show();
+        $(".show_hide1").show();
+        $('.show_hide1').click(function(){
+            $(".item_listing").slideToggle();
+            $("a.show_hide1").toggleClass("active");
+            $("a.show_hide2").removeClass("active");
+            $(".store_listing").hide();
+        });
+    });
+    $(document).ready(function(){
+        $(".store_listing").hide();
+        $(".show_hide2").show();
+        $('.show_hide2').click(function(){
+            $(".store_listing").slideToggle();
+            $("a.show_hide1").removeClass("active");
+            $("a.show_hide2").toggleClass("active");
+            $(".item_listing").hide();
+        });
+
+        //Images Controls
+        $('#prod_images .thumbnails .thumb').hover(function(){
+            if($(this).hasClass('active')!=true)
+            {
+                $('#prod_images .thumbnails .thumb').removeClass('active');
+                $(this).addClass('active');
+                tab_index=$(this).index('#prod_images .thumbnails .thumb');
+                $('#prod_images .images .image').hide();
+                $('#prod_images .images .image:eq('+tab_index+')').fadeIn(0);
+            }
+
+        });
+
+        //Choose item Controls
+        $('.make_order .opt_btn').click(function(){
+            if($(this).hasClass('active')!=true)
+            {
+                $('.make_order .opt_btn').removeClass('dark');
+                $('.make_order .opt_btn').removeClass('active');
+                $(this).addClass('active');
+                tab_index=$(this).index('.make_order .opt_btn');
+                $('.make_order .item_options .option').hide();
+                $('.make_order .item_options .option:eq('+tab_index+')').fadeIn(0);
+            }
+
+        });
+
+        //Slider
+        $('#more_products .slider').bxSlider({
+            auto: true,
+            pager: false,
+            speed:2000,
+            pause:5000,
+            mode: 'horizontal'
+        });
+
+
+    });
+
+    $(function() {
+      $( "#tabs" ).tabs();
+    });
+
+
+

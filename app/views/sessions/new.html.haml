@@ -1,0 +1,49 @@
+.row
+  .content_wrapper
+    .login_container
+      .register
+        %h1 Join
+        = form_for User.new do |form|
+          %p
+            First Name
+            %br/
+            = form.text_field :first_name, class: 'login_input'
+          %p
+            Last Name
+            %br/
+            = form.text_field :last_name, class: 'login_input'
+          %p
+            Email
+            %br/
+            = form.text_field :email, class: 'login_input'
+          %p
+            Password
+            %br/
+            = form.password_field :password, class: 'login_input'
+          %p
+            Confirm Password
+            %br/
+            = form.password_field :password_confirmation, class: 'login_input'
+          %p
+            %a.btn_red{href: "#", onclick: "$('#new_user').submit();"} Register
+      .login
+        %h1 Login
+        = form_for :session, :url => session_path, :html => {:id => 'new_session_1'} do |f|
+          %p
+            Email
+            %br/
+            = f.text_field :email, :type => 'email', :class => 'login_input'
+          %p
+            Password
+            %br/
+            = f.password_field :password, :class => 'login_input'
+          %p
+            = link_to 'Login', '#', onclick: '$("#new_session_1").submit();', class: 'btn_red'
+            = link_to 'Forgot password?', new_password_path, class: 'forgot_pass'
+      .clr
+      .social_buttons
+        %p or connect with
+        %p
+          = link_to " ".html_safe, "/auth/facebook", class: 'btn_facebook'
+          = link_to " ".html_safe, "/auth/google_oauth2", class: 'btn_googleplus'
+      .clr

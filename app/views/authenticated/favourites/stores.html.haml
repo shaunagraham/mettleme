@@ -1,0 +1,28 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .right_product_listing
+      = render 'authenticated/tabs/favourites'
+      .store_listing
+        %ul
+          - @favourite_stores.each do |store|
+            %li
+              %span.action_btns
+                = link_to ' '.html_safe, store_path(store), class: 'btn_view_item'
+                = link_to ' '.html_safe, destroy_favourite_user_path(favoured_type: 'store', favoured_id: store.id), method: :delete, class: 'btn_delete_item', confirm: 'Remove this favourite: are you sure?'
+              = link_to store_path(store) do
+                = image_tag store.placeholder_image
+                %br/
+                = store.name
+                %br/
+                %span
+                  = store.city
+                  , #{store.state}
+                %br/
+                %em= store.description
+                %br/
+              %br/
+              = link_to 'View Store', store_path(store), class: 'btn_red'
+              %br/
+              %br/
+              .clr

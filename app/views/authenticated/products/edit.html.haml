@@ -1,0 +1,237 @@
+.row
+  .content_wrapper
+    = render 'authenticated/sidebar'
+    .large-10.columns
+      #example-one.jobs-sec
+        = render 'authenticated/tabs/store'
+        = link_to 'Back to items', user_products_path, class: 'red-btn'
+      .grey-form
+        %h2 Item Details
+        = form_for [:user, @product] do |f|
+          %aside
+            %ul
+              %li
+                %label
+                  Gender
+                  %span *
+                %div
+                  %ul.style-radio
+                    %li
+                      = f.radio_button :gender, 'women', checked: true
+                      \  Women
+                    %li
+                      = f.radio_button :gender, 'men'
+                      \  Men
+                    %li
+                      = f.radio_button :gender, 'both'
+                      \  Both
+          %aside
+            %ul
+              %li
+                %label
+                  Category
+                  %span *
+                %div
+                = collection_select(:category, :category_id, @categories, :id, :name, {}, {:id => 'categories_select', :class => 'select'})
+                = f.collection_select :sub_category_id, @sub_categories, :id, :name, {}, {:class => 'select'}
+            %ul
+              %li
+                %label
+                  Item Name
+                  %span *
+                %div
+                  = f.text_field :name
+                  \   #{image_tag 'warnning.png'}
+            %ul
+              %li
+                %label
+                  Description
+                  %span *
+                %div
+                  = f.text_area :description
+                  \   #{image_tag 'warnning.png'}
+                  %ul
+                    %li
+                      %p.new-item
+                        %b Up to 100 symbols
+          %aside
+            %ul
+              %li
+                %label
+                  Materials
+                  %span *
+                %div
+                  = hidden_field_tag "product[material_ids][]", nil
+                  - Material.all.each do |material|
+                    %ul.style-choose
+                      %li
+                        = check_box_tag "product[material_ids][]", material.id, @product.material_ids.include?(material.id) , :id => dom_id(material)
+                        \ 
+                        \#{material.name}
+                  %ul
+                    %li
+                      %p.new-item
+                        Can't find your material?
+                        %br/
+                        %br/
+                        Submit A Material For Approval In The Field Below.
+                    %li
+                      %input.txt2{placehoder: "", type: "text"}/
+          %aside
+            %ul
+              %li
+                %label
+                  Colors
+                  %span *
+                %div
+                  = hidden_field_tag "product[color_ids][]", nil
+                  - Color.all.each do |color|
+                    %ul.style-choose
+                      %li
+                        = check_box_tag "product[color_ids][]", color.id, @product.color_ids.include?(color.id) , :id => dom_id(color)
+                        \ 
+                        \#{color.name}
+          %aside
+            %ul
+              %li
+                %label
+                  Style
+                  %span *
+                  %br/
+                  %p (3 items only)
+                .subscriber
+                  = hidden_field_tag "product[style_ids][]", nil
+                  - Style.all.each do |style|
+                    %ul.style-choose
+                      %li
+                        = check_box_tag "product[style_ids][]", style.id, @product.style_ids.include?(style.id) , :id => dom_id(style)
+                        \ 
+                        \#{style.name}
+                  %ul
+                    %li
+                      %p.new-item
+                        Can't find your style?
+                        %br/
+                        %br/
+                        Submit A style For Approval In The Field Below.
+                    %li
+                      %input.txt2{placehoder: "", type: "text"}/
+          %aside
+            %ul
+              %li
+                %label
+                  Seasons
+                  %span *
+                %div
+                  = hidden_field_tag "product[season_ids][]", nil
+                  - Season.all.each do |season|
+                    %ul.style-choose
+                      %li
+                        = check_box_tag "product[season_ids][]", season.id, @product.season_ids.include?(season.id) , :id => dom_id(season)
+                        \ 
+                        \#{season.name}
+          %aside
+            %ul
+              %li
+                %label
+                  Sizes Available
+                  %br/
+                  In Stock
+                  %span
+                %div
+                  %ul.style-min-choose
+                    %li
+                      %input{name: "", type: "checkbox", value: ""}>/
+                      \  S
+                  %ul.style-min-choose
+                    %li
+                      %input{name: "", type: "checkbox", value: ""}>/
+                      \  M
+                  %ul.style-min-choose
+                    %li
+                      %input{name: "", type: "checkbox", value: ""}>/
+                      \  L
+                  %ul.style-min-choose
+                    %li
+                      = image_tag 'warnning.png'
+                %div
+                  %ul.style-min-text
+                    %li
+                      %input.stock{type: "text", value: "1"}/
+                  %ul.style-min-text
+                    %li
+                      %input.stock{type: "text", value: "4"}/
+                  %ul.style-min-text
+                    %li
+                      %input.stock{type: "text", value: "0"}/
+                %label
+                %div
+                  %ul.style-big-choose
+                    %li
+                      %input{name: "", type: "checkbox", value: ""}>/
+                      \  Made To Order
+          %aside
+            %ul
+              %li
+                %label Shipping Details
+                %div
+                  = text_area_tag 'shipping_details'
+                  %ul
+                    %li
+                      %p.new-item
+                        %b
+                          Is anything specifically different from the overall store
+                          %br/
+                          shipping details?
+          %aside
+            %ul
+              %li
+                %label
+                  Price
+                  %span *
+                  %br
+                  %b including shipping
+
+                %div
+                  = f.text_field :price, :style => "width: 180px;"
+                  %label
+                    %span
+                      %b{style: "color: red"} ex. 9.99
+              %li
+                %label
+                %div
+                  %table
+                    %tr
+                      %td
+                        %a.img_margin{href: "#"}>
+                          %img{src: "/assets/item.png"}/
+                        \ 
+                        = succeed "\u{a0}" do
+                          %a.img_margin{href: "#"}
+                            %img{src: "/assets/item2.png"}/
+                        = succeed "\u{a0}" do
+                          %a.img_margin{href: "#"}
+                            %img{src: "/assets/blank_img.png"}/
+                        = succeed "\u{a0}" do
+                          %a.img_margin{href: "#"}
+                            %img{src: "/assets/blank_img.png"}/
+                  %table
+                    %tr
+                      %td
+                        %a.img_margin{href: "#"}
+                          %img{src: "/assets/blank_img.png"}/
+          .grey-form-button
+            = f.submit 'Publish', :disable_with => 'Please wait...', class: 'red-btn'
+            = f.submit 'Preview', :disable_with => 'Please wait...', class: 'grey-btn'
+:javascript
+  $(document).ready(function() {
+    $('#categories_select').change(function() {
+      $.ajax({
+        url: "#{sub_categories_by_category_user_products_path}",
+        data: {
+          category_id : $('#categories_select').val()
+        },
+        dataType: "script"
+      });
+    });
+  });

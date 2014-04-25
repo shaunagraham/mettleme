@@ -1,0 +1,50 @@
+:javascript
+  $(function() {
+  $( "#slider-range" ).slider({
+  	range: true,
+  	min: 0,
+  	max: 500,
+  	values: [ 0, 500 ],
+  	slide: function( event, ui ) {
+  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+  	}
+  	});
+  	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+  	" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  });
+.row
+  = render 'breadcrumb'
+  .content_wrapper
+    .store_info
+      .store_image
+        = image_tag @store.placeholder_image
+      .store_details
+        - if @user
+          - unless @user.favourites.stores.include? @store
+            = link_to_add_favourite(@store)
+        %h2= @store.name
+        %p
+          %strong Store Owner:
+          = @store.try(:owner_name)
+        %p
+          %strong Location:
+          = @store.try(:city)
+          , #{@store.try(:state)}
+        %p
+          %strong About:
+          = @store.try(:description)
+        %p
+          %strong Follow:
+          = link_to '', @store.facebook_url, class: 'fb' if @store.facebook_url.present?
+          = link_to '', @store.twitter_url, class: 'tw' if @store.twitter_url.present?
+          = link_to '', @store.youtube_url, class: 'yt'  if @store.youtube_url..present?
+          = link_to '', @store.tumblr_url, class: 'tmblr'  if @store.tumblr_url..present?
+      .clr
+    = render 'application/filters/stores/show'
+    .right_product_listing
+      = render 'sorting_area', collection: @products, unpaginated_collection: @store.products
+      .clr
+      #listing.item_listing.individual
+        = render 'listings/stores/show'
+      .clr
+      = render 'sorting_area', collection: @products, unpaginated_collection: @store.products
