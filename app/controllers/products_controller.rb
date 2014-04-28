@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
     #  with(:featured_store_ids, params[:featured_store_ids]) if params[:featured_store_ids].present?
     #end
     #@products = @search.results
-    @products = Product.search(params)
+    @products = Product.all
   end
   
   def show

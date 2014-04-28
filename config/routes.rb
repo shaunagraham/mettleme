@@ -7,8 +7,7 @@ MettleMe::Application.routes.draw do
   
   # Login/logout via SessionsController
   post  '/session'  => 'sessions#create'
-  match '/sign_in'  => 'sessions#new',     :as => :sign_in
-  match '/sign_out' => 'sessions#destroy', :as => :sign_out, :via => :delete
+
   
   # Clearance users sign up
   resources :users, controller: 'users', only: [:create]  
@@ -94,6 +93,6 @@ MettleMe::Application.routes.draw do
 
   end  
   
-  match 'auth/:provider/callback', to:  "sessions#create_from_omniauth"
+  get 'auth/:provider/callback', to:  "sessions#create_from_omniauth"
   
 end
