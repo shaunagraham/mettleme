@@ -11,6 +11,7 @@ gem 'paperclip_heroku', git: 'https://github.com/jameswilding/paperclip_heroku.g
 gem 'bluecloth'             # Markdown => HTML conversion
 gem 'acts-as-taggable-on'   # Tagging
 
+gem 'protected_attributes'
 gem 'will_paginate', '>= 3.0'
 gem 'tire'
 #gem 'sunspot_rails'
