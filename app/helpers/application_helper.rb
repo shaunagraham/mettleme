@@ -94,6 +94,7 @@ module ApplicationHelper
   
   def will_paginate(collection)
     # For options, see https://github.com/mislav/will_paginate/wiki/API-documentation    
+    return "" if collection.empty?
     html = super(collection, previous_label: '&lt;', 
 												  next_label: '&gt;', 
 												inner_window: 1, 

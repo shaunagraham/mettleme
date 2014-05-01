@@ -1,7 +1,9 @@
 mettleme
 ========
 
-We are upgrading to rails 4 with this step we have updated the gem file and all it dependencies. 
-As well we have set database to PG on all environments.
-
-We will now attempt to fix the outdated gem called tire that has been removed from elastic search.
+### Rail 4 upgrade
+* specified rails 4 in gemfile
+* all environments use postgres
+* outdated gem "tire" fixed by installing elasticsearch
+* rails 4 "protected_attributes" gem added to fix attr_accessible issue 
+* will_paginate helper now handles empty collections
