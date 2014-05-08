@@ -28,6 +28,7 @@ gem "social-buttons", '~> 0.3'
 gem "nested_has_many_through"
 gem "ruby-continent"
 gem "activerecord-session_store"
+gem 'ransack'
 #gem 'progress_bar'
 #gem "monologue"
 #gem "tinymce-rails"
