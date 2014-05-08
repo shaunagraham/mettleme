@@ -1,11 +1,9 @@
 class Product < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
-
   # attr_accessible :title, :body
 
   # Settings for will_paginate
   self.per_page = 30
+  attr_accessible :name, :gender, :description, :price, :number_in_stock, :days_to_ship, :in_stock, :made_to_order, :additional_details, :store_id, :slug, :sub_category_id, :season_ids, :material_ids, :color_ids, :style_ids
 
   # Associations
   belongs_to :store
@@ -83,35 +81,7 @@ class Product < ActiveRecord::Base
   #  end
   #end
 
-  mapping do
-    indexes :name, boost: 10
-    indexes :store_name # analyzer: 'snowball'
-    indexes :season_ids do
-      indexes :id, :type => :integer, :index => "not_analyzed"
-    end
-    indexes :sub_category_ids do
-       indexes :id, :type => :integer, :index => "not_analyzed"
-    end
-    indexes :color_ids do
-      indexes :id, :type => :integer, :index => "not_analyzed"
-    end
-    indexes :featured_store_ids do
-       indexes :id, :type => :integer, :index => "not_analyzed"
-    end
-  end
 
-  def self.search(params)
-    tire.search(load: true, page: params[:page], per_page: params[:per_page]) do
-      query { string params[:search], default_operator: "AND" } if params[:search].present?
-      filter :term, gender: params[:gender] if params[:gender].present? and params[:gender] != 'both'
-      filter :term, price: params[:price] if params[:price].present?
-      filter :terms, :season_ids => params[:season_ids] if params[:season_ids].present?
-      filter :terms, :sub_category_ids => params[:sub_category_ids] if params[:sub_category_ids].present?
-      filter :terms, :color_ids => params[:color_ids] if params[:color_ids].present?
-      filter :range, :price => {:gte => params[:start_price], :lte => params[:end_price] } if params[:start_price].present? && params[:end_price].present?
-      filter :terms, :featured_store_ids => params[:featured_store_ids] if params[:featured_store_ids].present?
-    end
-  end
 
   # self.include_root_in_json = false (necessary before Rails 3.1)
   def to_indexed_json

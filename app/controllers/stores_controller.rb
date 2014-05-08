@@ -19,7 +19,6 @@ class StoresController < ApplicationController
   
   def show
     @store    = Store.find_by_slug(params[:slug])
-    @products = @store.products.sorted(params[:sort_by]).paginate(page: params[:page], per_page: params[:per_page])
     
     if request.xhr?
       render partial: 'listings/stores/show' and return

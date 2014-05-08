@@ -1,6 +1,4 @@
 class Store < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
 
   CODE_COUNTRIES = {"AD" => "Europe","AE" => "Asia","AF" => "Asia","AG" => "North America","AI" => "North America","AL" => "Europe","AM" => "Asia","AN" => "North America","AO" => "Africa","AQ" => "Antarctica","AR" => "South America","AS" => "Australia","AT" => "Europe","AU" => "Australia","AW" => "North America","AZ" => "Asia","BA" => "Europe","BB" => "North America","BD" => "Asia","BE" => "Europe","BF" => "Africa","BG" => "Europe","BH" => "Asia","BI" => "Africa","BJ" => "Africa","BM" => "North America","BN" => "Asia","BO" => "South America","BR" => "South America","BS" => "North America",
    "BT" => "Asia","BW" => "Africa","BY" => "Europe","BZ" => "North America","CA" => "North America","CC" => "Asia","CD" => "Africa","CF" => "Africa","CG" => "Africa","CH" => "Europe","CI" => "Africa","CK" => "Australia","CL" => "South America","CM" => "Africa","CN" => "Asia","CO" => "South America","CR" => "North America","CU" => "North America","CV" => "Africa","CX" => "Asia","CY" => "Asia","CZ" => "Europe","DE" => "Europe","DJ" => "Africa","DK" => "Europe","DM" => "North America","DO" => "North America","DZ" => "Africa","EC" => "South America","EE" => "Europe","EG" => "Africa",
@@ -17,6 +15,8 @@ class Store < ActiveRecord::Base
   has_and_belongs_to_many :styles
   has_and_belongs_to_many :designers
 
+
+  attr_accessible :name, :owner_name, :city, :description, :user_id, :slug, :facebook_url, :twitter_url, :youtube_url, :tumblr_url, :pinterest_url, :country, :state, :active, :featured, :product_ids, :style_ids, :designer_ids
   # Validations
 
   validates_presence_of :name, :owner_name, :country, :state, :city, :description
@@ -43,61 +43,11 @@ class Store < ActiveRecord::Base
   scope :active, where(:active => true)
   scope :featured, where(:featured => true)
 
-  #searchable do
-  #  text :name
-  #  text :owner_name
-  #  integer :designer_ids, :multiple => true do
-  #    designers.map(&:id)
-  #  end
-  #  string :letters, :multiple => true do
-  #    designers.map(&:name).map{|letter| letter.first.capitalize}
-  #  end
-  #  #integer :season_ids, :multiple => true do
-  #  #
-  #  #end
-  #  integer :style_ids, :multiple => true do
-  #    styles.map(&:id)
-  #  end
-  #  string :trends, :multiple => true do
-  #    tag_list
-  #  end
-  #  string :country_continents, :multiple => true do
-  #     country_continent = []
-  #     country_continent << CODE_COUNTRIES[country] if self.country.present?  # for get the continent
-  #     country_continent << country_name if self.country.present? # for get the country
-  #  end
-  #end
 
-  mapping do
-    indexes :name, boost: 10
-    indexes :owner_name
-    indexes :designer_ids do
-       indexes :id, :type => :integer, :index => "not_analyzed"
-    end
-     indexes :style_ids do
-      indexes :id, :type => :integer, :index => "not_analyzed"
-    end
-    indexes :letters do
-       indexes :name, :type => :string, :index => "not_analyzed"
-    end
-    indexes :trends do
-       indexes :name, :type => :string, :index => "not_analyzed"
-    end
-    indexes :country_continents do
-      indexes :id, :type => :string, :index => "not_analyzed"
-    end
-  end
 
-  def self.search(params)
-    tire.search(load: true, page: params[:page], per_page: params[:per_page]) do
-      query { string params[:search], default_operator: "AND" } if params[:search].present?
-      filter :terms, :designer_ids => params[:designer_ids] if params[:designer_ids].present?
-      filter :terms, :letters => params[:letters] if params[:letters].present? and !params[:letters].include?("@")
-      filter :terms, :style_ids => params[:style_ids] if params[:style_ids].present?
-      filter :terms, :trends => params[:trends] if params[:trends].present?
-      filter :terms, :country_continents => params[:country_continents] if params[:country_continents].present?
-    end
-  end
+
+
+
 
   # self.include_root_in_json = false (necessary before Rails 3.1)
   def to_indexed_json
