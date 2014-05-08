@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, :confirmation => true, :on => :create, :unless => "authentications.present?"
   validates :password, :confirmation => true, :on => :update, :unless => lambda{ |user| user.password.blank? }
   
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :admin
   # Associations
   has_one  :store
   has_many :orders
