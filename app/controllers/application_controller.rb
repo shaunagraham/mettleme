@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
   include Clearance::Authentication
+  before_filter :set_search
   protect_from_forgery  
   
   before_filter :load_user  
+
+  def set_search
+    @search=Product.search(params[:q])
+  end
   
   private
   def load_user

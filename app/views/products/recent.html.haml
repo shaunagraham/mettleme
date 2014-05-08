@@ -1,6 +1,13 @@
 .row
   = render 'breadcrumb'
   = render 'spotlights'
+  = search_form_for @q do |f| 
+    = f.label :name_cont 
+    = f.text_field :name_cont 
+    = f.label :articles_title_start 
+    = f.text_field :articles_title_start 
+    = f.submit 
+  end 
   %div{style: "padding:10px 0; float:left; width:100%;"}
   .content_wrapper
     = render 'application/filters/products/recent'

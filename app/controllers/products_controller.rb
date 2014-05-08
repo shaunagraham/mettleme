@@ -1,20 +1,11 @@
 class ProductsController < ApplicationController
 
   def recent
-    #@search = Product.search do
-    #  fulltext params[:search] do
-    #    fields(:name, :store)
-    #  end
-    #  with(:gender, params[:gender]) if params[:gender].present? and params[:gender] != 'both'
-    #  paginate :page => params[:page], :per_page => params[:per_page]
-    #  with(:sub_category_ids, params[:sub_category_ids]) if params[:sub_category_ids].present?
-    #  with(:season_ids, params[:season_ids]) if params[:season_ids].present?
-    #  with(:color_ids, params[:color_ids]) if params[:color_ids].present?
-    #  with(:price, params[:start_price].to_i..params[:end_price].to_i) if params[:start_price].present? and params[:end_price].present?
-    #  with(:featured_store_ids, params[:featured_store_ids]) if params[:featured_store_ids].present?
-    #end
-    #@products = @search.results
-    @products = Product.all
+    process_search_params
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.js { render "renew_results" }
+    # end    
   end
   
   def show
@@ -23,5 +14,22 @@ class ProductsController < ApplicationController
     @message = Message.new
   end
 
+private
+  def process_search_params
+    if params[:q] != nil 
+      params[:q][:combinator] = 'and'
+      params[:q][:groupings] = []
+      custom_words = params["q"].delete('description_or_name_spaces_match_anything')
+      if custom_words != nil
+        custom_words.split(' ').each_with_index do |word, index|
+          params[:q][:groupings][index] = {description_or_name_spaces_match_anything: word} 
+        end
+      end
+    end
+    ransack_opts = params[:q]
+    ransack_opts[:s] = params[:sort] if params[:sort]
+    @search=Product.order('created_at DESC').search(ransack_opts)
+    @products = @search.result(distinct: true).page(params[:page]).per(10)
+  end
 
 end
