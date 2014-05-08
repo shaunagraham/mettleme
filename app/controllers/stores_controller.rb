@@ -14,7 +14,7 @@ class StoresController < ApplicationController
     #
     #end
     #@stores = @search.results
-    @stores = Store.search(params)
+    @stores = Store.all
   end
   
   def show
