@@ -1,20 +1,6 @@
 class StoresController < ApplicationController
   def index
-    #@search = Store.search do
-    #  fulltext params[:search] do
-    #    fields(:name, :owner_name)
-    #  end
-    #  paginate :page => params[:page], :per_page => params[:per_page]
-    #  with(:designer_ids, params[:designer_ids]) if params[:designer_ids].present?
-    #  with(:letters, params[:letters]) if params[:letters].present? and !params[:letters].include?("@")
-    #  #with(:season_ids, params[:season_ids]) if params[:season_ids].present?
-    #  with(:style_ids, params[:style_ids]) if params[:style_ids].present?
-    #  with(:trends, params[:trends]) if params[:trends].present?
-    #  with(:country_continents, params[:country_continents]) if params[:country_continents].present?
-    #
-    #end
-    #@stores = @search.results
-    @stores = Store.all
+    process_search_params
   end
   
   def show
@@ -23,5 +9,23 @@ class StoresController < ApplicationController
     if request.xhr?
       render partial: 'listings/stores/show' and return
     end    
+  end
+
+  private
+  def process_search_params
+    if params[:q] != nil 
+      params[:q][:combinator] = 'and'
+      params[:q][:groupings] = []
+      custom_words = params["q"].delete('description_or_name_spaces_match_anything')
+      if custom_words != nil
+        custom_words.split(' ').each_with_index do |word, index|
+          params[:q][:groupings][index] = {description_or_name_spaces_match_anything: word} 
+        end
+      end
+    end
+    ransack_opts = params[:q]
+    ransack_opts[:s] = params[:sort] if params[:sort]
+    @search=Store.order('created_at DESC').search(ransack_opts)
+    @stores = @search.result(distinct: true).page(params[:page]).per(10)
   end
 end

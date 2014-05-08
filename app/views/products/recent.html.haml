@@ -2,8 +2,8 @@
   = render 'breadcrumb'
   = render 'spotlights'
   = search_form_for @search, url: recent_products_path do |f| 
-    = f.label :name_cont 
-    = f.text_field :name_cont 
+    = f.label :description_or_name_spaces_match_anything 
+    = f.text_field :description_or_name_spaces_match_anything 
     = f.submit 
   end 
   %div{style: "padding:10px 0; float:left; width:100%;"}

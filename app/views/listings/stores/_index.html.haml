@@ -1,4 +1,9 @@
 = timestamp
+= search_form_for @search do |f| 
+  = f.label :description_or_name_spaces_match_anything 
+  = f.text_field :description_or_name_spaces_match_anything 
+  = f.submit 
+end 
 .sorting_area
   .itemperpage
     %span items per page:
@@ -8,7 +13,6 @@
   .pagination
     %span Page:
     %div
-      = will_paginate @stores
   .clr
 %ul
   - @stores.each do |store|
@@ -41,5 +45,4 @@
   .pagination
     %span Page:
     %div
-      = will_paginate @stores
   .clr
