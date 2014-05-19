@@ -22452,21 +22452,6 @@ $.extend( $.ui.tabs.prototype, {
         $("#search_form").submit();
       }
     });
-    $(function() {
-      $("#slider-range").slider({
-        range: true,
-        min: 0,
-        max: 1000,
-        values: [$("#start_price").val(), $("#end_price").val()],
-        slide: function(event, ui) {
-          $("#amount").text("$" + ui.values[0] + " - $" + ui.values[1]);
-          $("#start_price").attr("value", ui.values[0]);
-          $("#end_price").attr("value", ui.values[1]);
-          return $.get($("#search_form").attr("action"), $("#search_form").serialize(), null, "script");
-        }
-      });
-      $("#amount").text("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-    });
     $(".category").on("click", function() {
       $(".subcategory").hide();
       $(this).next().show();

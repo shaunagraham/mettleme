@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def recent
     process_search_params
     respond_to do |format|
-      format.html 
+      format.html # index.html.erb
       format.js { render "renew_results" }
     end    
   end

@@ -1,0 +1,107 @@
+<div class="left_navigation">
+  <%= form_tag recent_products_path , :id => "search_form", :method => :get do %>
+    <h3>Gender</h3>
+    <div class="location_sort">
+      <%= hidden_field_tag :search, params[:search] %>
+      <ul>
+        <li>
+          <%= check_box_tag :gender, 'men', params[:gender] == 'men', :class => 'filter filter_gender' %>
+          <label for="gender">
+            <span></span>
+            Men
+          </label>
+        </li>
+        <li>
+          <%= check_box_tag :gender, 'women', params[:gender] == 'women', :class => 'filter filter_gender' %>
+          <label for="gender">
+            <span></span>
+            women
+          </label>
+        </li>
+        <li>
+          <%= check_box_tag :gender, 'both', params[:gender] == 'both', :class => ' filter filter_gender' %>
+          <label for="gender">
+            <span></span>
+            both
+          </label>
+        </li>
+      </ul>
+    </div>
+    <h3>Shop</h3>
+    <div class="location_sort">
+      <% Category.all.each do |category| %>
+        <ul>
+          <li class="category">
+            <%= check_box_tag "#{category.name}" %>
+            <label>
+              <span></span>
+              <%= category.name %>
+            </label>
+          </li>
+          <li class="subcategory" style="display: none;">
+            <ul>
+              <% category.sub_categories.all.each do |sub_category| %>
+                <li>
+                  <%= check_box_tag "sub_category_ids[]", sub_category.id, (params[:sub_category_ids].present? and params[:sub_category_ids].include?(sub_category.id.to_s)) , :id => dom_id(sub_category), :class => 'filter' %>
+                  <%= label_tag dom_id(sub_category), sub_category.name %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+    <h3>Price</h3>
+    <div class="location_sort">
+      <div id="amount" style="text-align: center;"></div>
+      <br/>
+      <div id="slider-range"></div>
+      <% if params[:start_price].present? %>
+        <%= hidden_field_tag :start_price, params[:start_price] %>
+      <% else %>
+        <%= hidden_field_tag :start_price, 0 %>
+      <% end %>
+      <% if params[:end_price].present? %>
+        <%= hidden_field_tag :end_price, params[:end_price] %>
+      <% else %>
+        <%= hidden_field_tag :end_price, 1000 %>
+      <% end %>
+      <br/>
+    </div>
+    <h3>Colors</h3>
+    <div class="colors_sort">
+      <ul>
+        <% Color.all.each do |color| %>
+          <li>
+            <a class="<%= color.name %> colors" href="#"> </a>
+            <%= check_box_tag "color_ids[]", color.id, false , :id => dom_id(color), :style => 'visibility: hidden' %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="clr"></div>
+    </div>
+    <h3>Featured Stores</h3>
+    <div class="designer_sort scroll-pane">
+      <ul>
+        <% Store.featured.all.each do |featured_store| %>
+          <li>
+            <%= check_box_tag "featured_store_ids[]", featured_store.id, (params[:featured_store_ids].present? and params[:featured_store_ids].include?(featured_store.id.to_s)) , :id => dom_id(featured_store), :class => 'filter' %>
+            <%= label_tag dom_id(featured_store), featured_store.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <h3>Seasons</h3>
+    <div class="location_sort style">
+      <ul>
+        <% Season.all.each do |season| %>
+          <li>
+            <%= check_box_tag "season_ids[]", season.id, (params[:season_ids].present? and params[:season_ids].include?(season.id.to_s)) , :id => dom_id(season), :class => 'filter' %>
+            <%= label_tag dom_id(season), season.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= link_to '', recent_products_path, :class => 'btn_clearfilters' %>
+</div>

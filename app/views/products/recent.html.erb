@@ -4,12 +4,47 @@
   <%= search_form_for @search, url: recent_products_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
     <%= f.label :description_or_name_spaces_match_anything  %>
     <%= f.text_field :description_or_name_spaces_match_anything  %>
+    <%= f.select :gender_cont, options_for_select([['Male', 'men'], ['Female', 'female']]) %>
+    <%SubCategory.all.each do |subcategory|%>
+      <%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%>
+    <%end%>
+    <hr>
+    <br>
+    <div class="colors_sort">
+      <ul>
+      <% Color.all.each do |color| %>
+        <li>
+          <a class="<%= color.name %> colors" href="#"> </a>
+            <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %>
+        </li>
+      <% end %>
+      </ul>
+      <div class="clr"></div>
+    </div>
+      <div id="slider-range"></div>
+
+    <div id="price_slider">
+      <h3>Price</h3>
+        <div> 
+        <%= f.label :price_gteq, "Price between:" %>  
+        </div>
+        <%= f.text_field :price_gteq, :class => "span5"%>
+        <%= f.label :price_lteq, "between" %>
+        <%= f.text_field :price_lteq, :class => "span5"%>               
+    </div>
+    <p>
+    <label for="amount">Price range:</label>
+    <input type="text" id="amount" readonly/>
+    </p>
+
     <%= f.submit  %>
   <% end %>
   end 
   <div style="padding:10px 0; float:left; width:100%;"></div>
   <div class="content_wrapper">
     <%= render 'application/filters/products/recent' %>
+        <a class="indigo colors" href="#">hey</a>
+
     <div class="right_product_listing">
       <div class="clr"></div>
       <div class="item_listing" id="renew_listings">
@@ -19,3 +54,33 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+    function updateSlider() {
+      var val1 = $( "#slider-range" ).slider( "values", 0 );
+      var val2 = $( "#slider-range" ).slider( "values", 1 );
+      if (val2==1000){
+        $( "#amount" ).val( "$" + val1 + " - $" + val2 + "+");
+      }
+      else{
+        $( "#amount" ).val( "$" + val1 + " - $" + val2);
+      }
+      $('#q_price_gteq').val(val1);
+      $('#q_price_lteq').val(val2);
+    }
+
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 1000,
+      values: [ 0, 2000 ],
+      slide: function( event, ui ) {
+        updateSlider();
+      },
+      change: function(event,ui){
+        $('#search_button').click();
+      }
+    });
+
+</script>

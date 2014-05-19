@@ -7,23 +7,7 @@ jQuery ->
    $("#search_form").submit()  if e.keyCode is 13
    return
 
- $ ->
-   $("#slider-range").slider
-     range: true
-     min: 0
-     max: 1000
-     values: [
-       $("#start_price").val()
-       $("#end_price").val()
-     ]
-     slide: (event, ui) ->
-       $("#amount").text "$" + ui.values[0] + " - $" + ui.values[1]
-       $("#start_price").attr "value", ui.values[0]
-       $("#end_price").attr "value", ui.values[1]
-       $.get $("#search_form").attr("action"), $("#search_form").serialize(), null, "script"
 
-   $("#amount").text "$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1)
-   return
 
  $(".category").on "click", ->
    $(".subcategory").hide()
