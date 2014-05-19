@@ -1,7 +1,7 @@
 <div class="row">
   <%= render 'breadcrumb' %>
   <%= render 'spotlights' %>
-  <%= search_form_for @search, url: recent_products_path do |f|  %>
+  <%= search_form_for @search, url: recent_products_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
     <%= f.label :description_or_name_spaces_match_anything  %>
     <%= f.text_field :description_or_name_spaces_match_anything  %>
     <%= f.submit  %>
@@ -12,7 +12,7 @@
     <%= render 'application/filters/products/recent' %>
     <div class="right_product_listing">
       <div class="clr"></div>
-      <div class="item_listing" id="listing">
+      <div class="item_listing" id="renew_listings">
         <%= render 'listings/products/recent' %>
       </div>
       <div class="clr"></div>

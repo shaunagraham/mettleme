@@ -1,0 +1,2 @@
+$('#renew_listings').html("<%= escape_javascript(render "listings/products/recent") %>");
+ history.pushState({state:1}, "State 1", "<%=request.url%>"); // logs {state:1}, "State 1", "?state=1"
