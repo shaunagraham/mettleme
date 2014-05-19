@@ -5,12 +5,20 @@
     <%= f.label :description_or_name_spaces_match_anything  %>
     <%= f.text_field :description_or_name_spaces_match_anything  %>
     <%= f.select :gender_cont, options_for_select([['Male', 'men'], ['Female', 'female']]) %>
-    <%SubCategory.all.each do |subcategory|%>
-      <%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%>
-    <%end%>
+
+
+    <a href="#" data-dropdown="category_dropdown" class="button dropdown">Category</a><br>
+    <div class="f-dropdown" id="category_dropdown" data-dropdown-content>
+      <%SubCategory.all.each do |subcategory|%>
+        <%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%>
+      <%end%>
+    </div>
+
     <hr>
     <br>
-    <div class="colors_sort">
+
+    <a href="#" data-dropdown="color_drop" class="button dropdown">Colors</a><br>
+    <div class="colors_sort f-dropdown" id="color_drop" data-dropdown-content >
       <ul>
       <% Color.all.each do |color| %>
         <li>
@@ -21,6 +29,8 @@
       </ul>
       <div class="clr"></div>
     </div>
+
+
       <div id="slider-range"></div>
 
     <div id="price_slider">
