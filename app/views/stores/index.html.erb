@@ -1,0 +1,28 @@
+<div class="row">
+  <%= render 'breadcrumb' %>
+  <%= render 'spotlights' %>
+  <div style="padding:10px 0; float:left; width:100%;"></div>
+  <div class="content_wrapper">
+    <%= search_form_for @search do |f|  %>
+      <%= f.label :description_or_name_spaces_match_anything  %>
+      <%= f.text_field :description_or_name_spaces_match_anything  %>
+      <%= f.collection_select :designers_id_eq_any, Designer.all, :id, :name %>
+      <%Store::STORE_LOCATIONS.each do |location|%>
+        <%= check_box_tag('q[country_eq_any][]', location ) %><%=location%>
+      <%end%>
+      <hr>
+      <%Style.all.each do |style|%>
+        <%= check_box_tag('q[styles_id_eq_any][]', style.id ) %><%=style.name%>
+      <%end%>
+      <hr>
+      <%= f.submit  %>
+    <% end %>
+    <div class="right_product_listing">
+      <div class="clr"></div>
+      <div class="store_listing" id="listing">
+        <%= render 'listings/stores/index' %>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>

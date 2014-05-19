@@ -25,6 +25,8 @@ class Store < ActiveRecord::Base
   validate :has_styles?
 
 
+  STORE_LOCATIONS=['USA','BRAZIL','EUROPE']
+
   # Callbacks
   before_save :set_or_update_slug
   before_destroy { styles.clear }
