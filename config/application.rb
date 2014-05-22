@@ -14,7 +14,6 @@ module MettleMe
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
-    config.autoload_paths += %W(#{config.root}/lib)
 
 
     # Only load the plugins named here, in the order given (default is alphabetical).
@@ -50,7 +49,6 @@ module MettleMe
     # config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true
     config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
