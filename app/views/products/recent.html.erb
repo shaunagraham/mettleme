@@ -2,17 +2,15 @@
   <%= render 'breadcrumb' %>
   <%= render 'spotlights' %>
   <%= search_form_for @search, url: recent_products_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
-    <%= f.label :description_or_name_spaces_match_anything  %>
-    <%= f.text_field :description_or_name_spaces_match_anything  %>
-    <%= f.select :gender_cont, options_for_select([['Male', 'men'], ['Female', 'female']]) %>
+    <%= f.hidden_field :gender_cont %>
 
 
   <ul class="inline-list">
     <li>
       <a href="#" data-dropdown="drop1" class="button dropdown small secondary">Gender</a><br>
       <ul id="drop1" data-dropdown-content class="f-dropdown">
-        <li><a href="#">Male</a></li>
-        <li><a href="#">Female</a></li>
+        <li><a href="#" class="gender_select" data-gender="men">Male</a></li>
+        <li><a href="#" class="gender_select" data-gender="female">Female</a></li>
       </ul>
     </li>
     <li>
@@ -37,13 +35,13 @@
           <%= f.label :price_gteq, "PRICE:" %>  
         </li>
         <li style="margin-left:0px">
-          <%= f.text_field :price_gteq, :class=> "price-input"%>
+          <%= f.text_field :price_gteq, value: 0, :class=> "price-input"%>
         </li>
         <li style="margin-left:0px">
           <%= f.label :price_lteq, "-" %>
         </li>
         <li style="margin-left:0px">
-          <%= f.text_field :price_lteq, :class=> "price-input"%> 
+          <%= f.text_field :price_lteq, value: 500, :class=> "price-input"%> 
         </li>   
         <li id="slider-range" style="width:150px; margin-top:13px"></li>           
       </ul>
@@ -63,15 +61,16 @@
       </div>
     </li>
     <li>
-      <a href="#" class="button small secondary">X Clear</a>
+      <a href="/shop" class="button small secondary">X Clear</a>
     </li>
   </ul>
 
     <!--label for="amount">Price range:</label>
     <input type="text" id="amount" readonly/-->
 
-
-    <%= f.submit  %>
+    <div stlye="display:none">
+     <%= f.submit  %>
+    </div>
   <% end %>
   
 
@@ -95,7 +94,7 @@
     function updateSlider() {
       var val1 = $( "#slider-range" ).slider( "values", 0 );
       var val2 = $( "#slider-range" ).slider( "values", 1 );
-      if (val2==1000){
+      if (val2==500){
         $( "#amount" ).val( "$" + val1 + " - $" + val2 + "+");
       }
       else{
@@ -108,14 +107,21 @@
     $( "#slider-range" ).slider({
       range: true,
       min: 0,
-      max: 1000,
-      values: [ 0, 2000 ],
+      max: 500,
+      values: [ 0, 500 ],
       slide: function( event, ui ) {
         updateSlider();
       },
       change: function(event,ui){
         $('#search_button').click();
       }
+    });
+
+    $('.gender_select').click(function(){
+      var gender= $(this).data('gender');
+      $('#q_gender_cont').val(gender);
+      $('#product_search').submit();
+      return false;
     });
 
 </script>
