@@ -16,6 +16,13 @@
       </ul>
     </li>
     <li>
+      <a href="#" data-dropdown="drop1" class="button dropdown small secondary">Recent</a><br>
+      <ul id="drop1" data-dropdown-content class="f-dropdown">
+        <li><a href="#">...</a></li>
+        <li><a href="#">...</a></li>
+      </ul>
+    </li>
+    <li>
       <a href="#" data-dropdown="category_dropdown" class="button dropdown small secondary">Category</a><br>
       <div class="f-dropdown" id="category_dropdown" data-dropdown-content>
         <%SubCategory.all.each do |subcategory|%>
@@ -27,22 +34,22 @@
     <li>
       <ul id="price_slider" class="inline-list">    
         <li> 
-          <%= f.label :price_gteq, "Price:" %>  
+          <%= f.label :price_gteq, "PRICE:" %>  
         </li>
-        <li>
+        <li style="margin-left:0px">
           <%= f.text_field :price_gteq, :class=> "price-input"%>
         </li>
-        <li>
+        <li style="margin-left:0px">
           <%= f.label :price_lteq, "-" %>
         </li>
-        <li>
+        <li style="margin-left:0px">
           <%= f.text_field :price_lteq, :class=> "price-input"%> 
         </li>   
-        <li id="slider-range" style="width:150px; margin-top:8px"></li>           
+        <li id="slider-range" style="width:150px; margin-top:13px"></li>           
       </ul>
     </li>
     <li>
-      <a href="#" data-dropdown="color_drop" class="button dropdown small secondary ">Colors</a><br>
+      <a href="#" data-dropdown="color_drop" class="button dropdown small secondary ">C</a><br>
       <div class="colors_sort f-dropdown" id="color_drop" data-dropdown-content >
         <ul>
         <% Color.all.each do |color| %>
@@ -54,6 +61,9 @@
         </ul>
         <div class="clr"></div>
       </div>
+    </li>
+    <li>
+      <a href="#" class="button small secondary">X Clear</a>
     </li>
   </ul>
 
