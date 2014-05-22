@@ -30,18 +30,28 @@
       <div class="clr"></div>
     </div>
 
+    <a href="#" data-dropdown="drop1" class="button dropdown small secondary">Gender</a><br>
+      <ul id="drop1" data-dropdown-content class="f-dropdown">
+        <li><a href="#">Male</a></li>
+        <li><a href="#">Female</a></li>
+      </ul>
+      
 
-      <div id="slider-range"></div>
-
-    <div id="price_slider">
-      <h3>Price</h3>
-        <div> 
-        <%= f.label :price_gteq, "Price between:" %>  
-        </div>
-        <%= f.text_field :price_gteq, :class => "span5"%>
-        <%= f.label :price_lteq, "between" %>
-        <%= f.text_field :price_lteq, :class => "span5"%>               
-    </div>
+    <ul id="price_slider" class="inline-list">    
+      <li> 
+        <%= f.label :price_gteq, "Price:" %>  
+      </li>
+      <li>
+        <%= f.text_field :price_gteq, :class => "price-input"%>
+      </li>
+      <li>
+        <%= f.label :price_lteq, "-" %>
+      </li>
+      <li>
+        <%= f.text_field :price_lteq, :class => "price-input"%> 
+      </li>   
+      <li id="slider-range" style="width:150px; margin-top:8px"></li>           
+    </ul>
     <p>
     <label for="amount">Price range:</label>
     <input type="text" id="amount" readonly/>
