@@ -1964,3 +1964,18 @@ input[type="email"] {
 .gogle-analytics aside { float:left; width:100%;}
 .gogle-analytics aside a { float:left; margin:0 10px 0 0; width:100px; height:30px; line-height:30px; font-size:13px;}
 
+
+
+
+.price-input {
+	border: none !important;
+	box-shadow: none !important;
+	width: 50px !important;
+}
+
+
+
+
+
+
+

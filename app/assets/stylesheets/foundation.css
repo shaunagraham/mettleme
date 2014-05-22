@@ -2068,7 +2068,7 @@ form.custom {
   .dropdown.button.small {
     padding-right: 2.8125em; }
     .dropdown.button.small:before {
-      border-width: 0.5625em;
+      border-width: 0.3625em;
       right: 1.125em;
       margin-top: -0.21875em; }
     .dropdown.button.small:before {

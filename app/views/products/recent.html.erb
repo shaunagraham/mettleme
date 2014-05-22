@@ -7,59 +7,67 @@
     <%= f.select :gender_cont, options_for_select([['Male', 'men'], ['Female', 'female']]) %>
 
 
-    <a href="#" data-dropdown="category_dropdown" class="button dropdown">Category</a><br>
-    <div class="f-dropdown" id="category_dropdown" data-dropdown-content>
-      <%SubCategory.all.each do |subcategory|%>
-        <%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%>
-      <%end%>
-    </div>
-
-    <hr>
-    <br>
-
-    <a href="#" data-dropdown="color_drop" class="button dropdown">Colors</a><br>
-    <div class="colors_sort f-dropdown" id="color_drop" data-dropdown-content >
-      <ul>
-      <% Color.all.each do |color| %>
-        <li>
-          <a class="<%= color.name %> colors" href="#"> </a>
-            <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %>
-        </li>
-      <% end %>
-      </ul>
-      <div class="clr"></div>
-    </div>
-
-    <a href="#" data-dropdown="drop1" class="button dropdown small secondary">Gender</a><br>
+  <ul class="inline-list">
+    <li>
+      <a href="#" data-dropdown="drop1" class="button dropdown small secondary">Gender</a><br>
       <ul id="drop1" data-dropdown-content class="f-dropdown">
         <li><a href="#">Male</a></li>
         <li><a href="#">Female</a></li>
       </ul>
-      
+    </li>
+    <li>
+      <a href="#" data-dropdown="category_dropdown" class="button dropdown small secondary">Category</a><br>
+      <div class="f-dropdown" id="category_dropdown" data-dropdown-content>
+        <%SubCategory.all.each do |subcategory|%>
+          <%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%>
+        <%end%>
+      </div>
+    </li>
+    
+    <li>
+      <ul id="price_slider" class="inline-list">    
+        <li> 
+          <%= f.label :price_gteq, "Price:" %>  
+        </li>
+        <li>
+          <%= f.text_field :price_gteq, :class=> "price-input"%>
+        </li>
+        <li>
+          <%= f.label :price_lteq, "-" %>
+        </li>
+        <li>
+          <%= f.text_field :price_lteq, :class=> "price-input"%> 
+        </li>   
+        <li id="slider-range" style="width:150px; margin-top:8px"></li>           
+      </ul>
+    </li>
+    <li>
+      <a href="#" data-dropdown="color_drop" class="button dropdown small secondary ">Colors</a><br>
+      <div class="colors_sort f-dropdown" id="color_drop" data-dropdown-content >
+        <ul>
+        <% Color.all.each do |color| %>
+          <li>
+            <a class="<%= color.name %> colors" href="#"> </a>
+              <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %>
+          </li>
+        <% end %>
+        </ul>
+        <div class="clr"></div>
+      </div>
+    </li>
+  </ul>
 
-    <ul id="price_slider" class="inline-list">    
-      <li> 
-        <%= f.label :price_gteq, "Price:" %>  
-      </li>
-      <li>
-        <%= f.text_field :price_gteq, :class => "price-input"%>
-      </li>
-      <li>
-        <%= f.label :price_lteq, "-" %>
-      </li>
-      <li>
-        <%= f.text_field :price_lteq, :class => "price-input"%> 
-      </li>   
-      <li id="slider-range" style="width:150px; margin-top:8px"></li>           
-    </ul>
-    <p>
-    <label for="amount">Price range:</label>
-    <input type="text" id="amount" readonly/>
-    </p>
+    <!--label for="amount">Price range:</label>
+    <input type="text" id="amount" readonly/-->
+
 
     <%= f.submit  %>
   <% end %>
-  end 
+  
+
+
+
+
   <div style="padding:10px 0; float:left; width:100%;"></div>
   <div class="content_wrapper">
     <div class="right_product_listing">
