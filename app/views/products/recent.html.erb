@@ -52,8 +52,9 @@
         <ul>
         <% Color.all.each do |color| %>
           <li>
-            <a class="<%= color.name %> colors" href="#"> </a>
               <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %>
+              <a class="<%= color.name %> colors" href="#"> </a>
+
           </li>
         <% end %>
         </ul>

@@ -1030,11 +1030,11 @@ a.btn_red:hover {
 	border:0;
 	float:left;
 	padding:1px;
-	border:1px solid #ffffff;
     height:26px;
+    margin-bottom: 10px;
+	margin-right: 10px;
 }
 .colors_sort ul li:hover, .colors_sort ul li.active {
-	border:1px solid #000000;
 }
 .colors_sort ul li a{
 	background-color:#000000;
