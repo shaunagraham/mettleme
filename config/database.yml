@@ -24,7 +24,6 @@ test:
 
 production:
   adapter: postgresql
-  host: localhost
   encoding: unicode
   database: mettleme_production
   pool: 5
