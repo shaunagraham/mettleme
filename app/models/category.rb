@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-
+  attr_accessible :name
   # Associations
   has_many :sub_categories
   
