@@ -22,16 +22,16 @@
       </ul>
     </li>
     <li>
-      <a href="#" data-dropdown="category_dropdown" class="button dropdown small secondary">Category</a><br>
+      <a href="#" data-dropdown="category_dropdown" class="button dropdown small secondary">Product Type</a><br>
       <div class="f-dropdown medium" id="category_dropdown" data-dropdown-content>
         <div class="row">
           <%SubCategory.all.each do |subcategory|%>
-            <div class="large-4 columns" style="padding-right:10px; text-transform:uppercase"><%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%></div>
+            <div class="large-4 columns categories_check" style="padding-right:10px; text-transform:uppercase"><%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%></div>
           <%end%>
 
         </div>
-          <a href="#" class="button medium btn-black">APPLY</a>
-          <a href="#" class="button medium secondary">CLEAR</a>
+          <%= f.submit 'APPLY', class: 'button medium btn-black' %>
+          <a href="#" id="categories_clear" class="button medium secondary">CLEAR</a>
       </div>
     </li>
     
@@ -58,15 +58,15 @@
       <div>CHOOSE COLOR</div>
         <ul>
           <% Color.all.each do |color| %>
-            <li>
+            <li class="colors_check">
                 <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %>
                 <a class="<%= color.name %> colors" href="#"> </a>
 
             </li>
           <% end %>
         </ul>
-          <a href="#" class="button medium btn-black">APPLY</a>
-          <a href="#" class="button medium secondary">CLEAR</a>
+          <%= f.submit 'APPLY', class: 'button medium btn-black' %>
+          <a href="#" id="color_clear" class="button medium secondary">CLEAR</a>
         <div class="clr"></div>
       </div>
     </li>
@@ -131,6 +131,15 @@
       var gender= $(this).data('gender');
       $('#q_gender_cont').val(gender);
       $('#product_search').submit();
+      return false;
+    });
+
+    $('#categories_clear').click(function(){
+      $('.categories_check input:checkbox').removeAttr('checked')
+      return false;
+    });
+    $('#color_clear').click(function(){
+      $('.colors_check input:checkbox').removeAttr('checked')
       return false;
     });
 
