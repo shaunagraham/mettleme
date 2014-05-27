@@ -13,7 +13,6 @@ gem 'acts-as-taggable-on'   # Tagging
 
 gem 'protected_attributes'
 gem 'will_paginate', '>= 3.0'
-gem 'tire'
 #gem 'sunspot_rails'
 #gem 'sunspot_solr'
 gem 'fakeweb'
