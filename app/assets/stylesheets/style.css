@@ -1985,8 +1985,9 @@ input[type="email"] {
 	border: 1px solid black;
 }
 .btn-black:hover {
-	background-color: white;
-	color: black;
+	background-color: #e2363b;
+	border: 1px solid #e2363b;
+	color: white;
 }
 
 

@@ -1334,8 +1334,8 @@ button, .button {
     letter-spacing: 1px;
     border-color: #d0d0d0;
     color: #333333; }
-    button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-      background-color: #d0d0d0; }
+    button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus, .button.secondary:active {
+      background-color: #d0d0d0 !important; }
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
       color: #333333; }
   button.success, .button.success {
@@ -4186,7 +4186,7 @@ a.th {
   font-size: 12px;
   z-index: 99;
   margin-top: 16px;
-  max-width: 400px; }
+  max-width: 200px; }
   .f-dropdown > *:first-child {
     margin-top: 0; }
   .f-dropdown > *:last-child {
@@ -4257,7 +4257,7 @@ a.th {
     .f-dropdown.content > *:last-child {
       margin-bottom: 0; }
   .f-dropdown.tiny {
-    max-width: 200px; }
+    max-width: 112px; }
   .f-dropdown.small {
     max-width: 300px; }
   .f-dropdown.medium {
