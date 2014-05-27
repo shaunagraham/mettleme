@@ -1458,14 +1458,13 @@ button, .button {
 
 @media only screen {
   button, .button {
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    
     -webkit-transition: background-color 300ms ease-out;
     -moz-transition: background-color 300ms ease-out;
     transition: background-color 300ms ease-out; }
     button:active, .button:active {
-      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset; }
+      
+      }
     button.radius, .button.radius {
       -webkit-border-radius: 3px;
       border-radius: 3px; }
@@ -1723,7 +1722,7 @@ input[type="file"],
 input[type="checkbox"],
 input[type="radio"],
 select {
-  margin: 0 0 1em 0; }
+  margin: 0 5px 1em 0; }
 
 /* Normalize file input width */
 input[type="file"] {
@@ -4184,18 +4183,17 @@ a.th {
   height: auto;
   background: white;
   border: solid 1px #cccccc;
-  font-size: 16px;
+  font-size: 12px;
   z-index: 99;
-  padding: 10px;
-  margin-top: 20px;
-  max-width: 200px; }
+  margin-top: 16px;
+  max-width: 400px; }
   .f-dropdown > *:first-child {
     margin-top: 0; }
   .f-dropdown > *:last-child {
     margin-bottom: 0; }
   .f-dropdown:before {
     content: "";
-    display: block;
+    display: none;
     width: 0;
     height: 0;
     border: inset 6px;
@@ -4207,7 +4205,7 @@ a.th {
     z-index: 99; }
   .f-dropdown:after {
     content: "";
-    display: block;
+    display: none;
     width: 0;
     height: 0;
     border: inset 7px;
@@ -4227,12 +4225,19 @@ a.th {
     font-size: 0.875em;
     cursor: pointer;
     line-height: 1.125em;
+    padding: 10px;
     margin: 0; }
     .f-dropdown li:hover, .f-dropdown li:focus {
-      background: #eeeeee; }
+      background: black;
+      color: white; }
     .f-dropdown li a {
       padding: 0.3125em 0.625em;
-      color: #555555; }
+      color: #555555;
+      display: block; 
+      text-transform: uppercase;}
+    .f-dropdown li:hover a {
+      color: white;
+    }
   .f-dropdown.content {
     position: absolute;
     top: -9999px;

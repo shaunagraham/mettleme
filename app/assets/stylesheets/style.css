@@ -1973,9 +1973,21 @@ input[type="email"] {
 	width: 40px !important;
 	margin-bottom: 0px !important;
 }
-
-
-
+#category_dropdown {
+	padding: 15px;
+}
+.categories {
+	margin-right: 20px;
+}
+.btn-black {
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+}
+.btn-black:hover {
+	background-color: white;
+	color: black;
+}
 
 
 
