@@ -3662,6 +3662,9 @@ kbd {
     display: block; }
     .inline-list > li > * {
       display: block; }
+      .inline-list > li > a {
+        margin-bottom: 0px;
+      }
 
 /* Default Pagination */
 ul.pagination {

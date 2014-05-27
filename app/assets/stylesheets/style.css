@@ -1971,6 +1971,7 @@ input[type="email"] {
 	border: none !important;
 	box-shadow: none !important;
 	width: 40px !important;
+	margin-bottom: 0px !important;
 }
 
 
