@@ -25,7 +25,7 @@
       <div class="f-dropdown medium" id="category_dropdown" data-dropdown-content>
         <div class="row">
           <%SubCategory.all.each do |subcategory|%>
-            <div class="large-4 columns categories_check" style="padding-right:10px; text-transform:uppercase"><%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%></div>
+            <div class="large-4 columns categories_check" style="padding-right:0px; text-transform:uppercase"><%= check_box_tag('q[sub_category_id_eq_any][]', subcategory.id ) %><%=subcategory.name%></div>
           <%end%>
 
         </div>
@@ -55,11 +55,11 @@
     </li>
     <li>
       <a href="#" data-dropdown="color_drop" class="button dropdown small secondary" style="padding-bottom:5px"><img src="assets/color-select.png"></a><br>
-      <div class="colors_sort f-dropdown small" id="color_drop" data-dropdown-content >
-      <div>CHOOSE COLOR</div>
+      <div class="colors_sort f-dropdown medium" id="color_drop" data-dropdown-content >
+      <div style="font-size:13px; margin-bottom:15px;">SELECT COLOR</div>
         <ul class="row">
           <% Color.all.each do |color| %>
-              <div class="large-4 columns categories_check" style="padding-right:10px; text-transform:uppercase">
+              <div class="large-4 columns categories_check" style="padding-right:0px; text-transform:uppercase">
                 <div class="check-box <%=color.name%> " style="background:<%=color.name%> "><i>
                   <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %> 
                 </i></div>
