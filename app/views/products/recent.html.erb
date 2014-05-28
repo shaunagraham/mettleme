@@ -62,12 +62,12 @@
       <div>CHOOSE COLOR</div>
         <ul class="row">
           <% Color.all.each do |color| %>
-           
-            <div  style="background-color: <%=color.name%>" class="colors_check large-4 columns categories_check" style="padding-right:10px; text-transform:uppercase">
-                <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %>
-                <a class="<%= color.name %> colors" href="#"> </a>
-
-            </div>
+              <div class="large-4 columns categories_check" style="padding-right:10px; text-transform:uppercase">
+                <div class="check-box <%=color.name%> " style="background:<%=color.name%> "><i>
+                  <%= check_box_tag('q[colors_id_eq_any][]', color.id ) %> 
+                </i></div>
+                <%=color.name%>
+              </div>
           <% end %>
         </ul>
           <%= f.submit 'APPLY', class: 'button medium btn-black' %>
@@ -79,10 +79,7 @@
       <a href="/shop" class="button small secondary">X Clear</a>
     </li>
   </ul>
-  <div class="checkbox">  
-      <input id="check1" type="checkbox" name="check" value="check1">  
-      <label for="check1">Checkbox No. 1</label>  
-  </div>  
+
     <!--label for="amount">Price range:</label>
     <input type="text" id="amount" readonly/-->
 
@@ -90,8 +87,6 @@
      <%= f.submit  %>
     </div>
   <% end %>
-  
-
 
 
 
@@ -150,8 +145,26 @@
       $('.colors_check input:checkbox').removeAttr('checked')
       return false;
     });
+/*
+  Custom checkbox and radio button - Jun 18, 2013
+  (c) 2013 @ElmahdiMahmoud 
+  license: http://www.opensource.org/licenses/mit-license.php
+*/   
+$('input[name="q[sub_category_id_eq_any][]"]').wrap('<div class="check-box"><i></i></div>');
+$.fn.toggleCheckbox = function () {
+    this.attr('checked', !this.attr('checked'));
+}
 
+$.fn.toggleCheckbox = function () {
+    this.attr('checked', !this.attr('checked'));
+}
+$('.check-box').on('click', function () {
+    $(this).find(':checkbox').toggleCheckbox();
+    $(this).toggleClass('checkedBox');
+});
 
 
 
 </script>
+
+
