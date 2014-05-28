@@ -2039,3 +2039,8 @@ input[type=checkbox]:checked + label:before {
     text-align: center;  
     line-height: 15px;  
 }  
+
+.small_dollar{
+	font-size: 15px;
+margin-top: 4px;
+}
