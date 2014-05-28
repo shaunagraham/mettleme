@@ -16,11 +16,8 @@
     <li>
       <a href="#" data-dropdown="drop2" class="button dropdown small secondary">Recent</a><br>
       <ul id="drop2" data-dropdown-content class="f-dropdown">
-        <li><%= sort_link @search , :price_desc, 'PRICE (HIGH -LOW)',  remote: true %></li>
-        <li><%= sort_link @search, :price_asc, 'PRICE (LOW - HIGH)',remote: true %></li>
-        <li><a href="#">DISCOUNT (HIGH TO LOW)</a></li>
-
-
+        <li><%= sort_link @search , :price_desc, 'PRICE (HIGH -LOW)',{}, { :remote => true, :method => :post }%></li>
+        <li><%= sort_link @search, :price_asc, 'PRICE (LOW - HIGH)',{},{ :remote => true, :method => :post } %></li>
       </ul>
     </li>
     <li>

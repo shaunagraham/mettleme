@@ -1,6 +1,10 @@
 class StoresController < ApplicationController
   def index
     process_search_params
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js { render "renew_results" }
+    end       
   end
   
   def show

@@ -3,26 +3,154 @@
   <%= render 'spotlights' %>
   <div style="padding:10px 0; float:left; width:100%;"></div>
   <div class="content_wrapper">
-    <%= search_form_for @search do |f|  %>
-      <%= f.label :description_or_name_spaces_match_anything  %>
-      <%= f.text_field :description_or_name_spaces_match_anything  %>
-      <%= f.collection_select :designers_id_eq_any, Designer.all, :id, :name %>
-      <%Store::STORE_LOCATIONS.each do |location|%>
-        <%= check_box_tag('q[country_eq_any][]', location ) %><%=location%>
-      <%end%>
-      <hr>
-      <%Style.all.each do |style|%>
-        <%= check_box_tag('q[styles_id_eq_any][]', style.id ) %><%=style.name%>
-      <%end%>
-      <hr>
+    <%= search_form_for @search, url: stores_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
+
+  <ul class="inline-list" style="padding-top:20px; margin-bottom:0px">
+
+    <!-- location -->
+    <li>
+      <a href="#" data-dropdown="category_dropdown" class="button dropdown small secondary">LOCATION</a><br>
+      <div class="f-dropdown medium" id="category_dropdown" data-dropdown-content>
+        <div class="row">
+          <%Store::STORE_LOCATIONS.each do |location|%>
+            <div class="large-4 columns locations_check" style="padding-right:10px; text-transform:uppercase"><%= check_box_tag('q[country_eq_any][]', location ) %><%=location%></div>
+          <%end%>
+        </div>
+          <%= f.submit 'APPLY', class: 'button medium btn-black' %>
+          <a href="#" id="locations_clear" class="button medium secondary">CLEAR</a>
+      </div>
+    </li>
+    <!-- end location -->
+
+
+    <!-- style -->
+    <li>
+      <a href="#" data-dropdown="style_dropdown" class="button dropdown small secondary">STYLE</a><br>
+      <div class="f-dropdown medium" id="style_dropdown" data-dropdown-content>
+        <div class="row">
+          <%Style.all.each do |style|%>
+            <div class="large-4 columns styles_check" style="padding-right:10px; text-transform:uppercase"><%= check_box_tag('q[styles_id_eq_any][]', style.id ) %><%=style.name%></div>
+          <%end%>
+        </div>
+          <%= f.submit 'APPLY', class: 'button medium btn-black' %>
+          <a href="#" id="styles_clear" class="button medium secondary">CLEAR</a>
+      </div>
+    </li>
+
+    <!-- end of style dropdown -->
+
+    <li>
+      <a href="#" data-dropdown="designer_dropdown" class="button dropdown small secondary">DESIGNER</a><br>
+      <div class="f-dropdown medium" id="designer_dropdown" data-dropdown-content>
+        <div class="row">
+          <%Designer.all.each do |designer|%>
+            <div class="large-4 columns designers_check" style="padding-right:10px; text-transform:uppercase"><%= check_box_tag('q[designer_id_eq_any][]', designer.id ) %><%=designer.name%></div>
+          <%end%>
+        </div>
+          <%= f.submit 'APPLY', class: 'button medium btn-black' %>
+          <a href="#" id="designers_clear" class="button medium secondary">CLEAR</a>
+      </div>
+    </li>
+    <li>
+      <a href="/stores" class="button small secondary">X Clear</a>
+    </li>
+  </ul>
       <%= f.submit  %>
     <% end %>
+
+
+
     <div class="right_product_listing">
       <div class="clr"></div>
-      <div class="store_listing" id="listing">
+      <div class="store_listing" id="renew_stores">
         <%= render 'listings/stores/index' %>
       </div>
       <div class="clr"></div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+    function updateSlider() {
+      var val1 = $( "#slider-range" ).slider( "values", 0 );
+      var val2 = $( "#slider-range" ).slider( "values", 1 );
+      if (val2==500){
+        $( "#amount" ).val( "$" + val1 + " - $" + val2 + "+");
+      }
+      else{
+        $( "#amount" ).val( "$" + val1 + " - $" + val2);
+      }
+      $('#q_price_gteq').val(val1);
+      $('#q_price_lteq').val(val2);
+    }
+
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 0, 500 ],
+      slide: function( event, ui ) {
+        updateSlider();
+      },
+      change: function(event,ui){
+        $('#search_button').click();
+      }
+    });
+
+    $('.gender_select').click(function(){
+      var gender= $(this).data('gender');
+      $('#q_gender_cont').val(gender);
+      $('#product_search').submit();
+      return false;
+    });
+
+    $('#locations_clear').click(function(){
+      $('.locations_check input:checkbox').removeAttr('checked');
+      $('.locations_check .checkedBox').removeClass('checkedBox');
+      return false;
+    });
+
+    $('#styles_clear').click(function(){
+      $('.styles_check input:checkbox').removeAttr('checked');
+      $('.styles_check .checkedBox').removeClass('checkedBox');
+
+      return false;
+    });
+
+    $('#designers_clear').click(function(){
+      $('.designers_check input:checkbox').removeAttr('checked');
+      $('.designers_check .checkedBox').removeClass('checkedBox');
+      return false;
+    });
+/*
+  Custom checkbox and radio button - Jun 18, 2013
+  (c) 2013 @ElmahdiMahmoud 
+  license: http://www.opensource.org/licenses/mit-license.php
+*/   
+$('input[name="q[styles_id_eq_any][]"]').wrap('<div class="check-box"><i></i></div>');
+$.fn.toggleCheckbox = function () {
+    this.attr('checked', !this.attr('checked'));
+}
+
+$('input[name="q[country_eq_any][]"]').wrap('<div class="check-box"><i></i></div>');
+$.fn.toggleCheckbox = function () {
+    this.attr('checked', !this.attr('checked'));
+}
+
+$('input[name="q[designer_id_eq_any][]"]').wrap('<div class="check-box"><i></i></div>');
+$.fn.toggleCheckbox = function () {
+    this.attr('checked', !this.attr('checked'));
+}
+
+$.fn.toggleCheckbox = function () {
+    this.attr('checked', !this.attr('checked'));
+}
+$('.check-box').on('click', function () {
+    $(this).find(':checkbox').toggleCheckbox();
+    $(this).toggleClass('checkedBox');
+});
+
+
+
+</script>
