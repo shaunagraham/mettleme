@@ -1993,10 +1993,6 @@ input[type="email"] {
 
 
 
-.small_dollar{
-	font-size: 15px;
-margin-top: 4px;
-}
 
 
 .radio-btn input[type="radio"], .check-box input[type="checkbox"] {
@@ -2097,3 +2093,19 @@ margin-top: 4px;
 .checkedRadio i {
     background-color: #898A8C;
 }
+
+
+.small_dollar{
+	font-size: 14px;
+	margin-top: 4px;
+}
+
+#price_slider {
+	margin-left: 0px;
+}
+#price_slider > li {
+	margin-left: 3px;
+}
+
+
+
