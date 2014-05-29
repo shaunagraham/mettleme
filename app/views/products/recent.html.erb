@@ -16,10 +16,12 @@
     <li>
       <a href="#" data-dropdown="drop2" class="button dropdown small secondary">Recent</a><br>
       <ul id="drop2" data-dropdown-content class="f-dropdown">
-        <li><%= sort_link @search , :price_desc, 'PRICE (HIGH -LOW)',{}, { :remote => true, :method => :post }%></li>
-        <li><%= sort_link @search, :price_asc, 'PRICE (LOW - HIGH)',{},{ :remote => true, :method => :post } %></li>
+        <li><a href="#" id="price_low">PRICE (LOW-HIGH)</a></li>
+        <li><a href="#" id="price_high">PRICE (HIGH-LOW)</a></li>
       </ul>
     </li>
+   
+
     <li>
       <a href="#" data-dropdown="category_dropdown" class="button dropdown small secondary">Product Type</a><br>
       <div class="f-dropdown medium" id="category_dropdown" data-dropdown-content>
@@ -84,6 +86,10 @@
     </div>
   <% end %>
 
+  <div class="sort_links" style="display:none">
+    <%= sort_link @search , :price_desc, 'PRICE (HIGH -LOW)',{}, { :remote => true, :method => :get, id: 'sort_high_low' }%>
+    <li><%= sort_link(@search, :price_asc, "Price LOW TO HIGH " , {}, { :remote => true, :method => :get , id: 'sort_low_high'}) %></li>
+  </div>
 
 
   <div style="padding:10px 0; float:left; width:100%;"></div>
@@ -164,6 +170,13 @@ $('.check-box').on('click', function () {
 });
 
 
+$('#price_high').click(function(){
+  $('#sort_high_low').click();
+});
+
+$('#price_low').click(function(){
+  $('#sort_low_high').click();
+});
 
 </script>
 
