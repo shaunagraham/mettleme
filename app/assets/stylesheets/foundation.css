@@ -4228,9 +4228,12 @@ a.th {
     line-height: 1.125em;
     padding: 10px;
     margin: 0; }
+
     .f-dropdown li:hover, .f-dropdown li:focus {
       background: black;
-      color: white; }
+      color: white;
+ transition:all 0.3s ease; -moz-transition:all 0.3s ease; -webkit-transition:all 0.3s ease; -o-transition:all 0.3s ease;-ms-transition:all 0.3s ease;
+       }
     .f-dropdown li a {
       padding: 0.3125em 0.625em;
       color: #555555;
