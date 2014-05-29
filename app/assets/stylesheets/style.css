@@ -2105,4 +2105,6 @@ input[type="email"] {
 	background-color: grey !important;
 }
 
-
+.long_button {
+	width:174px;
+}

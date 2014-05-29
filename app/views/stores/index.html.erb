@@ -9,7 +9,7 @@
 
     <!-- location -->
     <li>
-      <a href="#" data-dropdown="category_dropdown" class="button dropdown medium secondary">LOCATION</a><br>
+      <a href="#" data-dropdown="category_dropdown" class="button dropdown medium secondary long_button">LOCATION</a><br>
       <div class="f-dropdown medium" id="category_dropdown" data-dropdown-content>
         <div class="row">
           <%Store::STORE_LOCATIONS.each do |location|%>
@@ -25,7 +25,7 @@
 
     <!-- style -->
     <li>
-      <a href="#" data-dropdown="style_dropdown" class="button dropdown medium secondary">STYLE</a><br>
+      <a href="#" data-dropdown="style_dropdown" class="button dropdown medium secondary long_button">STYLE</a><br>
       <div class="f-dropdown medium" id="style_dropdown" data-dropdown-content>
         <div class="row">
           <%Style.all.each do |style|%>
@@ -40,7 +40,7 @@
     <!-- end of style dropdown -->
 
     <li>
-      <a href="#" data-dropdown="designer_dropdown" class="button dropdown medium secondary">DESIGNER</a><br>
+      <a href="#" data-dropdown="designer_dropdown" class="button dropdown medium secondary long_button">DESIGNER</a><br>
       <div class="f-dropdown medium" id="designer_dropdown" data-dropdown-content>
         <div class="row">
           <%Designer.all.each do |designer|%>
@@ -52,7 +52,7 @@
       </div>
     </li>
     <li>
-      <a href="/stores" class="button medium secondary">X Clear</a>
+      <a href="/stores" class="button medium secondary long_button">X Clear</a>
     </li>
   </ul>
       <%= f.submit  %>
