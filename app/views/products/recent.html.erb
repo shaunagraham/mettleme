@@ -134,11 +134,15 @@
     });
 
     $('#categories_clear').click(function(){
-      $('.categories_check input:checkbox').removeAttr('checked')
+      $('.categories_check input:checkbox').removeAttr('checked');
+      $('.categories_check .checkedBox').removeClass('checkedBox');
+
       return false;
     });
     $('#color_clear').click(function(){
-      $('.colors_check input:checkbox').removeAttr('checked')
+      $('.colors_check input:checkbox').removeAttr('checked');
+      $('.colors_check .checkedBox').removeClass('checkedBox');
+
       return false;
     });
 /*
@@ -163,72 +167,5 @@ $('.check-box').on('click', function () {
 
 </script>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    
-    //Adding class active to fieldset
-    $('.selectbox fieldset').click(function(){
-        $(this).toggleClass('active');
-    });
-    
-    // Select Gender
-    $('.sel_gender fieldset').click(function(){
-      $('ul.gender').fadeToggle(200);
-    });
-    
-    // Get Select Data
-    $('ul.gender > li').click(function(){
-      $('input.selected_gender').val($(this).html());
-      $('ul.gender').fadeOut(200);
-    });
-    
-    // Select Price
-    $('.price fieldset').click(function(){
-      $('ul.sel_price').fadeToggle(200);
-    });
-    
-    // Get Select Data
-    $('ul.sel_price > li').click(function(){
-      $('input.selected_price').val($(this).html());
-      $('ul.sel_price').fadeOut(200);
-    });
-    
-    // Select Popular
-    $('.popular fieldset').click(function(){
-      $('ul.sel_popular').fadeToggle(200);
-    });
-    
-    // Get Select Data
-    $('ul.sel_popular > li').click(function(){
-      $('input.selected_popular').val($(this).html());
-      $('ul.sel_popular').fadeOut(200);
-    });
-    
-    // Select Product Type
-    $('.prod_type fieldset').click(function(){
-      $('ul.prod_type_list').fadeToggle(200);
-    });
-    
-    // Select Designer
-    $('.designers fieldset').click(function(){
-      $('ul.sel_designer').fadeToggle(200);
-      $('.designers .scroll-pane').jScrollPane();
-    });
-    
-    // Select Color
-    $('.color fieldset').click(function(){
-      $('ul.sel_color').fadeToggle(200);
-    });
-    
-    // Select Location
-    $('.location fieldset').click(function(){
-      $('ul.sel_location').fadeToggle(200);
-    });
-    
-    // Select Style
-    $('.style fieldset').click(function(){
-      $('ul.sel_style').fadeToggle(200);
-    });
-  });
-</script>
+
 
