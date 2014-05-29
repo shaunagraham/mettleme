@@ -47,21 +47,21 @@
     
     <li>
       <ul id="price_slider" class="inline-list">    
-        <li style="padding-top:3px"> 
-          PRICE: 
+        <li style="padding-top:3px; font-size:14px"> 
+          Price: 
         </li>
         <li class="small_dollar"><span >$</span></li>
         <li style="margin-left:0px">
           <%= f.text_field :price_gteq, value: 0, :class=> "price-input"%>
         </li>
-        <li style="margin-left:0px">
+        <li style="margin-left:0px; padding-top:2px">
           -
         </li>
         <li class="small_dollar"><span >$</span></li>
         <li style="margin-left:0px">
           <%= f.text_field :price_lteq, value: 500, :class=> "price-input"%> 
         </li>   
-        <li id="slider-range" style="width:150px; margin-top:11px"></li>           
+        <li id="slider-range" style="width:150px; margin-top:14px"></li>           
       </ul>
     </li>
     <li>

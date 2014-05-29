@@ -2042,6 +2042,9 @@ form.custom {
 .dropdown.button {
   position: relative;
   padding-right: 3.1875em; }
+  .dropdown.button:hover {
+    border-color: #bbb;
+  }
   .dropdown.button:before {
     position: absolute;
     content: "";

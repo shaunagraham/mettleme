@@ -752,10 +752,10 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-slider-horizontal {
-	height: 5px;
+	height: 4px;
 }
 .ui-slider-horizontal .ui-slider-handle {
-	top: -6px;
+	top: -8px;
 	margin-left: -4px;
 	cursor: pointer;
 }
