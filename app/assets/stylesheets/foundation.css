@@ -1,4 +1,4 @@
-f.inline-list > li*,
+*,
 *:before,
 *:after {
   -moz-box-sizing: border-box;
@@ -1310,7 +1310,6 @@ button, .button {
   font-family: inherit;
   font-weight: bold;
   line-height: 1;
-  margin: 0 0 1.25em;
   position: relative;
   text-decoration: none;
   text-align: center;
@@ -3658,7 +3657,7 @@ kbd {
   .inline-list > li {
     list-style: none;
     float: left;
-    margin-left: 0.85em;
+    margin-left: 1.1em;
     display: block; }
     .inline-list > li > * {
       display: block; }
@@ -4265,7 +4264,7 @@ a.th {
   .f-dropdown.small {
     max-width: 300px; }
   .f-dropdown.medium {
-    max-width: 500px; 
+    max-width: 511px; 
     padding: 20px;
   }
   .f-dropdown.large {
