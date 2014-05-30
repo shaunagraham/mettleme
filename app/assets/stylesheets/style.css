@@ -1071,7 +1071,7 @@ a.btn_red:hover {
 	background-color:#f9b508;
 	border:1px solid #f9b508;
 }
-.check-box.green{
+.check-box-color.green{
 	background:green !important;
 }
 .colors_sort ul li a.dark_green{
@@ -1134,7 +1134,7 @@ a.btn_red:hover {
 	border:1px solid green;
 }
 
-.check-box.emerald{
+.check-box-color.emerald{
 	background:#50C878 !important;
 }
 
@@ -1153,7 +1153,7 @@ a.btn_red:hover {
 	border:1px solid gray;
 }
 
-.check-box.titanium{
+.check-box-color.titanium{
 	background:#B6AFA9 !important;
 }
 
@@ -1995,11 +1995,11 @@ input[type="email"] {
 
 
 
-.radio-btn input[type="radio"], .check-box input[type="checkbox"] {
+.radio-btn input[type="radio"], .check-box input[type="checkbox"], .check-box-color input[type="checkbox"]  {
     visibility: hidden;
 }
 /*Custom checkbox*/
- .check-box {
+ .check-box ,.check-box-color{
     width: 18px;
     height: 18px;
     cursor: pointer;
@@ -2018,7 +2018,27 @@ input[type="email"] {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
     border: 1px solid #ccc;
 }
+
+
 .check-box i {
+    background: url('checkbox-black.png') no-repeat center center;
+    position: absolute;
+    left: 1px;
+    bottom: -18px;
+    width: 18px;
+    height: 18px;
+    opacity: 1;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    -webkit-transform:rotateZ(-180deg);
+    -moz-transform:rotateZ(-180deg);
+    -o-transform:rotateZ(-180deg);
+    transform:rotateZ(-180deg);
+}
+
+.check-box-color i {
     background: url('checkbox.png') no-repeat center center;
     position: absolute;
     left: 1px;
@@ -2035,6 +2055,7 @@ input[type="email"] {
     -o-transform:rotateZ(-180deg);
     transform:rotateZ(-180deg);
 }
+
 .checkedBox {
    border: 1px solid black;
 }
