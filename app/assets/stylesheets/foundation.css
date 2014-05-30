@@ -1,4 +1,4 @@
-f.inline-list > li*,
+*,
 *:before,
 *:after {
   -moz-box-sizing: border-box;
@@ -3658,7 +3658,7 @@ kbd {
   .inline-list > li {
     list-style: none;
     float: left;
-    margin-left: 0.85em;
+    margin-left: 1.1em;
     display: block; }
     .inline-list > li > * {
       display: block; }
