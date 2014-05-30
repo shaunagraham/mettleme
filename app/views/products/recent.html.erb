@@ -2,7 +2,7 @@
   <%= render 'breadcrumb' %>
   <%= render 'spotlights' %>
   <%= search_form_for @search, url: recent_products_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
-    <%= f.hidden_field :gender_cont %>
+    <%= f.hidden_field :gender_eq %>
 
 
   <ul class="inline-list" style="padding-top:20px; margin-bottom:0px">
