@@ -1310,7 +1310,6 @@ button, .button {
   font-family: inherit;
   font-weight: bold;
   line-height: 1;
-  margin: 0 0 1.25em;
   position: relative;
   text-decoration: none;
   text-align: center;
@@ -4265,7 +4264,7 @@ a.th {
   .f-dropdown.small {
     max-width: 300px; }
   .f-dropdown.medium {
-    max-width: 500px; 
+    max-width: 511px; 
     padding: 20px;
   }
   .f-dropdown.large {
