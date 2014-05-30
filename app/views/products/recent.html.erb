@@ -3,7 +3,7 @@
   <%= render 'spotlights' %>
   <%= search_form_for @search, url: recent_products_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
     <%= f.hidden_field :gender_eq %>
-    <input id="hidden_sort"  name="sort" value="price desc">
+    <input id="hidden_sort"  type="hidden" name="sort" value="price desc">
 
   <ul class="inline-list" style="padding-top:20px; margin-bottom:0px; margin-left:-13px">
     <li>
@@ -82,7 +82,7 @@
     <!--label for="amount">Price range:</label>
     <input type="text" id="amount" readonly/-->
 
-    <div stlye="display:none">
+    <div style="display:none">
      <%= f.submit  %>
     </div>
   <% end %>
