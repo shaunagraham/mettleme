@@ -3,7 +3,7 @@
   <%= render 'spotlights' %>
   <%= search_form_for @search, url: recent_products_path, :html => {:remote => true ,  :class => "form-search"}  do |f|  %>
     <%= f.hidden_field :gender_eq %>
-
+    <input id="hidden_sort"  name="sort" value="price desc">
 
   <ul class="inline-list" style="padding-top:20px; margin-bottom:0px; margin-left:-13px">
     <li>
@@ -17,8 +17,8 @@
     <li>
       <a href="#" data-dropdown="drop2" class="button dropdown small secondary">Recent</a><br>
       <ul id="drop2" data-dropdown-content class="f-dropdown">
-        <li><a href="#" id="price_low">PRICE (LOW-HIGH)</a></li>
-        <li><a href="#" id="price_high">PRICE (HIGH-LOW)</a></li>
+        <li><a href="#"  class="sort_change" data-sort="price desc">PRICE (LOW-HIGH)</a></li>
+        <li><a href="#"  class="sort_change" data-sort="price asc">PRICE (HIGH-LOW)</a></li>
       </ul>
     </li>
    
@@ -172,13 +172,11 @@ $('.check-box').on('click', function () {
 });
 
 
-$('#price_high').click(function(){
-  $('#sort_high_low').click();
-});
-
-$('#price_low').click(function(){
-  $('#sort_low_high').click();
-});
+  $('.sort_change').click(function(){
+    var sort_string= $(this).data('sort');
+    $('#hidden_sort').val(sort_string);
+    $('#product_search').submit();
+  });
 
 </script>
 
