@@ -134,9 +134,8 @@
 
     $('.gender_select').click(function(){
       var gender= $(this).data('gender');
-      $('#q_gender_cont').val(gender);
+      $('#q_gender_eq').val(gender);
       $('#product_search').submit();
-      return false;
     });
 
     $('#categories_clear').click(function(){
