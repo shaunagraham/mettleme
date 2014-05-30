@@ -141,12 +141,14 @@
     $('#categories_clear').click(function(){
       $('.categories_check input:checkbox').removeAttr('checked');
       $('.categories_check .checkedBox').removeClass('checkedBox');
+      $('#product_search').submit();
 
       return false;
     });
     $('#color_clear').click(function(){
       $('.colors_check input:checkbox').removeAttr('checked');
       $('.colors_check .checkedBox').removeClass('checkedBox');
+      $('#product_search').submit();
 
       return false;
     });
